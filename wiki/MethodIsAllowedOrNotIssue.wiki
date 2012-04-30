@@ -1,4 +1,4 @@
-#对一个发过来的请求中的URI和HTTP方法(GET|PUT|POST|DELETE)，能否对这个URI对应的对象执行这个方法的问题.
+#Issue about request's http method is allowed or not for request's uri.
  
 = Introduction =
 
