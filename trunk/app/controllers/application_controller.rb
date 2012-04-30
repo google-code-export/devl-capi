@@ -35,16 +35,15 @@ class ApplicationController < ActionController::Base
     else
       ##BEGIN OF PATH PROCESS##
       #get the specific format in the request path
-      format     = getFormat(request.path.last, containers.last)
-      
-      #remove the format string to get current path
-      path       = request.path.sub(/#{format}/,'')
+      format            = getFormat(request.path.last, containers.last)
+      path              = request.path
+      pathWithoutFormat = request.path.sub(/#{format}/,'')
       
       #find parent path
-      parentpath = getParentURI(path)
+      parentpath = getParentURI(pathWithoutFormat)
 
-      #the parent path of root('/') is '/' 
-      if parentpath == path && path == '/'
+      #the parent path of root('/') is nil
+      if parentpath == pathWithoutFormat && pathWithoutFormat == '/'
         #so current path is root
         root       = true
         parentpath = nil
@@ -236,7 +235,7 @@ class ApplicationController < ActionController::Base
             itemType == :queue ? true : false
           when :put
             if format != nil
-              itemType == :dataobject ? true : false
+              itemType == (:dataobject || :queue) ? true : false
             elsif format == nil
               true
             end
@@ -365,7 +364,7 @@ class ApplicationController < ActionController::Base
         render :json => {"ERROR" => "put is not allowed for this uri ,because parentpath does not exist!"},:content_type => 'application/json', :status => :bad_request
         return
       end
-    elsif findParentPath.first.data["itemType"] != :container
+    elsif findParentPath.first.data["itemType"] != (:container || :domain)
       #PUT IS NOT ALLOWED FOR THIS URI ,BECAUSE PARENTPATH IS NOT A CONTAINER
       render :json => {"ERROR" => "put is not allowed for this uri ,because parentpath is not a container"},:content_type => 'application/json', :status => :bad_request
       return
@@ -490,14 +489,16 @@ class ApplicationController < ActionController::Base
                   getResult[key] = item.data[key]
                 when "Fixnum"
                   if ( value > ( item.data[key].nil? ? -1 : item.data[key].length - 1 ) ) || ( value < 0 )
-                    render :json => {"ERROR" => "INVALID QUERY PARAMETERS RANGE IN THE REQUEST"},:content_type => 'application/json', :status => :bad_request
-                    return
+                    # render :json => {"ERROR" => "INVALID QUERY PARAMETERS RANGE IN THE REQUEST"},:content_type => 'application/json', :status => :bad_request
+                    # return
+                    getResult[key] = nil
                   end
                   getResult[key] = item.data[key].class == HashWithIndifferentAccess ? item.data[key].to_a[0..value] : item.data[key][0..value]
                 when "Hash"
                   if ( value['Beign_Byte'] > value['End_Byte'] ) || ( value['Beign_Byte'] < 0 ) || ( value['End_Byte'] > ( item.data[key].nil? ? -1 : item.data[key].length - 1 ) )
-                    render :json => {"ERROR" => "INVALID QUERY PARAMETERS RANGE IN THE REQUEST"},:content_type => 'application/json', :status => :bad_request
-                    return
+                    # render :json => {"ERROR" => "INVALID QUERY PARAMETERS RANGE IN THE REQUEST"},:content_type => 'application/json', :status => :bad_request
+                    # return
+                    getResult[key] = nil
                   end
                   getResult[key] = item.data[key].class == HashWithIndifferentAccess ? item.data[key].to_a[value['Beign_Byte']..value['End_Byte']] : item.data[key][value['Beign_Byte']..value['End_Byte']]
                 else

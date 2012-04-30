@@ -4551,3 +4551,13 @@ Completed in 59ms (View: 1 | 200 OK [http://localhost/ssaass]
 Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-04-30 17:18:16) [GET]
   Parameters: {"steps"=>[]}
 Completed in 31ms (View: 1 | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 00:35:06) [GET]
+  Parameters: {"steps"=>[".jkl"]}
+Completed in 2ms (View: 1 | 400 Bad Request [http://localhost/.jkl]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 00:47:34) [PUT]
+  Parameters: {"steps"=>["ss.jkl"]}
+Completed in 3188ms (View: 1 | 405 Method Not Allowed [http://localhost/ss.jkl]
