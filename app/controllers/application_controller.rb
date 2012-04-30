@@ -51,20 +51,20 @@ class ApplicationController < ActionController::Base
       ##END OF PATH PROCESS##
 
       ##BEGIN OF QUERY PARAMETERS PROCESS##
-      myParams    = Hash.new   #contain correct params
-      errorParams = Hash.new #contain incorrect params
+      vaildQueryParams   = Hash.new  #contain correct params
+      invaildQueryParams = Hash.new  #contain incorrect params
 
       #Is query string in correct format?
       request.query_string.split(';').each { |item|
-        unless item =~ /^\w+:\d+-\d+$|^\w+:\d+$|^\w+$/
+        unless item =~ /^\w+:\d+-\d+$|^metadata:\w+$|^\w+$/
           #parameters ERROR
-          errorParams['ERROR'] = "query_parameters ERROR \'#{request.query_string}\'"
+          invaildQueryParams['ERROR'] = "query_parameters ERROR \'#{request.query_string}\'"
         end
       }
 
       request.query_parameters.each { |orik,oriv| 
         #match format 1, key:value1-value2
-        #e.g. "name:0-900"
+        #e.g. "field:0-900"
         if orik =~ /^\w+:\d+-\d+$/
           k = orik.match(/^\w+/)[0]
           tempv = orik.match(/(\d+)-(\d+)$/)
@@ -72,31 +72,31 @@ class ApplicationController < ActionController::Base
             'Beign_Byte' => tempv[1].to_i,
             'End_Byte' => tempv[2].to_i
           }
-          myParams[k] = v
+          vaildQueryParams[k] = v
         #match format 2, key:value
-        #e.g. "name:600"
-        elsif orik =~ /^\w+:\d+$/
-          k = orik.match(/^\w+/)[0]
-          v = orik.match(/\d+$/)[0]
-          myParams[k] = v.to_i
-        #match error format,value is Non-numeric
-        #e.g. "name:tty"
+        #e.g. "metadata:prefix"
+        elsif orik =~ /^metadata:\w+$/
+          k = "metadata"
+          v = orik.match(/\w+$/)[0]
+          vaildQueryParams[k] = v
+        #match error format,value is something strange
+        #e.g. "metadataC:[&&]]"
         elsif orik =~ /^\w+:.+$/
           # parameters ERROR
           k = orik.match(/^\w+/)[0]
           v = "incorrect VALUE format #{orik.sub(/#{k}/,'')}"
-          errorParams[k] = v
+          invaildQueryParams[k] = v
         #match format 3,didn't specify a value
         #e.g. "name"
         else
           k = orik.match(/^\w+/)[0]
-          myParams[k] = nil
+          vaildQueryParams[k] = nil
         end
       }
 
-      unless errorParams['ERROR'].nil?
+      unless invaildQueryParams['ERROR'].nil?
         #The query string is in incorrect format, return
-        render :json => errorParams,:status => :bad_request,:content_type => 'application/json'
+        render :json => invaildQueryParams,:status => :bad_request,:content_type => 'application/json'
         return
       end
       ##END OF QUERY PARAMETERS PROCESS##
@@ -110,7 +110,7 @@ class ApplicationController < ActionController::Base
         'format'           => format,
         'path'             => path,
         'parentpath'       => parentpath,
-        'query_parameters' => myParams,
+        'query_parameters' => vaildQueryParams,
         'request.method'   => request.method,
         'raw_post'         => request.raw_post
       }
@@ -487,13 +487,11 @@ class ApplicationController < ActionController::Base
               case value.class.to_s
                 when "NilClass"
                   getResult[key] = item.data[key]
-                when "Fixnum"
-                  if ( value > ( item.data[key].nil? ? -1 : item.data[key].length - 1 ) ) || ( value < 0 )
-                    # render :json => {"ERROR" => "INVALID QUERY PARAMETERS RANGE IN THE REQUEST"},:content_type => 'application/json', :status => :bad_request
-                    # return
-                    getResult[key] = nil
-                  end
-                  getResult[key] = item.data[key].class == HashWithIndifferentAccess ? item.data[key].to_a[0..value] : item.data[key][0..value]
+                when "String"
+                  #metadata:<prefix>
+                  item.data['metadata'].nil? ? nil : item.data['metadata'].each_key { |mk|
+                    mk.start_with?(value) ? (getResult[key][mk] = item.data['metadata'][mk]) : next
+                  }
                 when "Hash"
                   if ( value['Beign_Byte'] > value['End_Byte'] ) || ( value['Beign_Byte'] < 0 ) || ( value['End_Byte'] > ( item.data[key].nil? ? -1 : item.data[key].length - 1 ) )
                     # render :json => {"ERROR" => "INVALID QUERY PARAMETERS RANGE IN THE REQUEST"},:content_type => 'application/json', :status => :bad_request
