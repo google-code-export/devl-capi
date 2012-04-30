@@ -16,8 +16,8 @@
 *
 = Details =
 
-首先，我假定根目录是'/'
+首先，我假定根目录是`'/'`
 
-  * 如果一个URI是以'/'结尾，那通常情况下不允许做GET|PUT|DELETE操作（有例外，下文会讲到），POST则可以，POST操作会在下一级目录Create一个对象。例如：'/ContainerA/../ContainerX/'
-  * 如果一个URI是以除'/'以外的任何一个允许的字符结尾，则任何情况下都不允许做POST操作，GET|PUT|DELETE则可以。例如：'/ContainerA/../ContainerX/Object'
-  * 如果一个URI是以'/'结尾，并且这个URI就是根目录，则允许做GET|PUT|POST操作，对应的过程为Read当前对象、Update当前对象、在下一级目录Create一个对象
+  * 如果一个URI是以`'/'`结尾，那通常情况下不允许做`GET|PUT|DELETE`操作（有例外，下文会讲到），`POST`则可以，`POST`操作会在下一级目录`Create`一个对象。例如：`"/ContainerA/../ContainerX/"`
+  * 如果一个URI是以除`'/'`以外的任何一个有效字符结尾，则任何情况下都不允许做`POST`操作，`GET|PUT|DELETE`则可以。例如：`"/ContainerA/../ContainerX/Object"`
+  * 如果一个URI是以`'/'`结尾，并且这个URI就是根目录，则允许做`GET|PUT|POST`操作，对应的过程为`Read`当前对象、`Update`当前对象、在下一级目录`Create`一个对象
