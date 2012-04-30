@@ -2,16 +2,16 @@
  
 = Introduction =
 
-对一个发过来的请求中的URI和HTTP方法(GET|PUT|POST|DELETE)，能否对这个URI对应的对象执行这个方法的问题。
+对一个发过来的请求中的URI和HTTP方法`(GET|PUT|POST|DELETE)`，能否对这个URI对应的对象执行这个方法的问题。
 
 你需要了解CRUD和4个HTTP方法的对应关系，求详细的可以看这个→ http://en.wikipedia.org/wiki/Create,_read,_update_and_delete
 
 我假定对应关系是下表这样的：
 || HTTP方法 || CRUD ||
-|| GET || Read ||
-|| PUT || Create或Update ||
-|| POST || Create ||
-|| DELETE || Delete||
+|| `GET` || `Read` ||
+|| `PUT` || `Create或Update` ||
+|| `POS`T || `Create` ||
+|| `DELETE` || `Delete`||
 
 *
 = Details =
