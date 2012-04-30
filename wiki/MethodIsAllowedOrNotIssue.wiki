@@ -1,4 +1,4 @@
-#Issue about request's http method is allowed or not for request's uri.
+#summary issues about request's http method is allowed or not for request's uri.
  
 = Introduction =
 
