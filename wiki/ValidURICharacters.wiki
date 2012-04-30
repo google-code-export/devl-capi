@@ -6,7 +6,7 @@
 
 下文所指的对象可以是`Container、Dataobject、Queue、Domain`中的任何一种
 
-  * `'.'`若出现，只能在URI的最后一级是dataobject的URI中出现，标志着dataobject的格式名的开始，不能在上层的任何一级目录名中出现。例如：
+  * `'.'`若出现，只能在URI的最后一级是dataobject或Queue的URI中出现，标志着格式名的开始，不能在上层的任何一级目录名中出现。例如：
             # 有效：`/containerA/containerB/dataobject.txt` _对象名 `"dataobject"` 格式名 `".txt"`_
             # 有效：`/containerA/containerB/data,object` _对象名 `"data,object"` 格式名 `nil`_
             # 有效：`/containerA/containerB/2009-6.4db` _对象名 `"2009-6"` 格式名 `".4db"`_
