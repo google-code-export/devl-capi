@@ -4,12 +4,20 @@
 
 对一个发过来的请求中的URI和HTTP方法(GET|PUT|POST|DELETE)，能否对这个URI对应的对象执行这个方法的问题。
 
-你需要了解CRUD和4个HTTP方法的对应关系，CRUD的可以看这个→ [wikipedia] http://en.wikipedia.org/wiki/Create,_read,_update_and_delete
+你需要了解CRUD和4个HTTP方法的对应关系，求详细的可以看这个→ http://en.wikipedia.org/wiki/Create,_read,_update_and_delete
 
+我假定对应关系是下表这样的：
+|| HTTP方法 || CRUD ||
+|| GET || Read ||
+|| PUT || Create或Update ||
+|| POST || Create ||
+|| DELETE || Delete||
+
+*
 = Details =
 
 首先，我假定根目录是'/'
 
-  * 如果一个URI是以'/'结尾，那通常情况下不允许做GET|PUT|DELETE操作（有例外，下文会讲到），POST则可以。例如：'/ContainerA/../ContainerX/'
+  * 如果一个URI是以'/'结尾，那通常情况下不允许做GET|PUT|DELETE操作（有例外，下文会讲到），POST则可以，POST操作会在下一级目录Create一个对象。例如：'/ContainerA/../ContainerX/'
   * 如果一个URI是以除'/'以外的任何一个允许的字符结尾，则任何情况下都不允许做POST操作，GET|PUT|DELETE则可以。例如：'/ContainerA/../ContainerX/Object'
-  * 如果一个URI是以'/'结尾，并且这个URI就是根目录，则允许做GET|PUT|POST操作，对应
+  * 如果一个URI是以'/'结尾，并且这个URI就是根目录，则允许做GET|PUT|POST操作，对应的过程为Read当前对象、Update当前对象、在下一级目录Create一个对象
