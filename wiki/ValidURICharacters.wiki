@@ -1,0 +1,8 @@
+#summary which characters make a uri valid?
+
+= Details =
+
+ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_,.
+
+*  '.'
+*  ss
