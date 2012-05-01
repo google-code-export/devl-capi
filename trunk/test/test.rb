@@ -1,3 +1,5 @@
-i = 1
+require "json"
 
-p i == (0 || 9)
+body_json      = JSON("")
+
+p body_json
