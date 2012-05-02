@@ -4814,3 +4814,576 @@ Completed in 31ms (View: 1 | 200 OK [http://localhost/k?metadata]
 Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 19:51:10) [GET]
   Parameters: {"metadata:"=>nil, "steps"=>["k"]}
 Completed in 6ms (View: 4 | 400 Bad Request [http://localhost/k?metadata:]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:03:47) [GET]
+  Parameters: {"metadata"=>nil, "steps"=>["k"]}
+Completed in 31ms (View: 1 | 200 OK [http://localhost/k?metadata]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:03:57) [GET]
+  Parameters: {"metadata"=>nil, "steps"=>["k"]}
+Completed in 31ms (View: 1 | 200 OK [http://localhost/k?metadata]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:04:12) [GET]
+  Parameters: {"metadata"=>nil, "steps"=>["k"]}
+Completed in 31ms (View: 1 | 200 OK [http://localhost/k?metadata]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:04:25) [GET]
+  Parameters: {"metadata"=>nil, "steps"=>["k"]}
+Completed in 31ms (View: 1 | 200 OK [http://localhost/k?metadata]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:04:35) [GET]
+  Parameters: {"steps"=>["k"]}
+Completed in 34ms (View: 1 | 200 OK [http://localhost/k]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:04:39) [GET]
+  Parameters: {"steps"=>["k"]}
+Completed in 33ms (View: 2 | 200 OK [http://localhost/k]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:04:44) [GET]
+  Parameters: {"steps"=>["k"]}
+Completed in 32ms (View: 1 | 200 OK [http://localhost/k]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:06:00) [GET]
+  Parameters: {"steps"=>["k"]}
+Completed in 30ms (View: 1 | 200 OK [http://localhost/k]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:06:05) [GET]
+  Parameters: {"steps"=>["k"]}
+Completed in 31ms (View: 1 | 200 OK [http://localhost/k]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:06:51) [GET]
+  Parameters: {"steps"=>["k"]}
+Completed in 37ms (View: 2 | 200 OK [http://localhost/k]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:06:55) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 32ms (View: 1 | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:07:14) [PUT]
+  Parameters: {"steps"=>["k"]}
+Completed in 3ms (View: 1 | 400 Bad Request [http://localhost/k]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:07:26) [PUT]
+  Parameters: {"steps"=>["k"]}
+Completed in 2ms (View: 0 | 400 Bad Request [http://localhost/k]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:07:38) [PUT]
+  Parameters: {"steps"=>["k"]}
+Completed in 2ms (View: 0 | 200 OK [http://localhost/k]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:08:10) [PUT]
+  Parameters: {"steps"=>["k"]}
+Completed in 2ms (View: 1 | 400 Bad Request [http://localhost/k]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:09:03) [PUT]
+  Parameters: {"steps"=>["k"]}
+Completed in 2ms (View: 0 | 400 Bad Request [http://localhost/k]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:09:59) [PUT]
+  Parameters: {"steps"=>["k"]}
+Completed in 2ms (View: 0 | 400 Bad Request [http://localhost/k]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:10:58) [PUT]
+  Parameters: {"steps"=>["k"]}
+Completed in 3ms (View: 1 | 400 Bad Request [http://localhost/k]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:15:14) [PUT]
+  Parameters: {"steps"=>["k"]}
+Completed in 46ms (View: 1 | 406 Not Acceptable [http://localhost/k]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:15:30) [PUT]
+  Parameters: {"steps"=>["k"]}
+Completed in 44ms (View: 1 | 200 OK [http://localhost/k]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:16:20) [PUT]
+  Parameters: {"steps"=>["k"]}
+Completed in 43ms (View: 1 | 200 OK [http://localhost/k]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:16:28) [PUT]
+  Parameters: {"steps"=>["k"]}
+Completed in 43ms (View: 1 | 200 OK [http://localhost/k]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:19:11) [PUT]
+  Parameters: {"steps"=>["ssssssssssssssssssssssssssssssss", "s"]}
+
+NoMethodError (undefined method `data' for nil:NilClass):
+  app/controllers/application_controller.rb:464:in `do_PUT'
+  app/controllers/application_controller.rb:149:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (12.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:25:08) [PUT]
+  Parameters: {"steps"=>["ssssssssssssssssssssssssssssssss", "s"]}
+Completed in 32ms (View: 1 | 200 OK [http://localhost/ssssssssssssssssssssssssssssssss/s]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:26:26) [PUT]
+  Parameters: {"steps"=>["ssssssssssssssssssssssssssssssss", "s"]}
+Completed in 54ms (View: 1 | 200 OK [http://localhost/ssssssssssssssssssssssssssssssss/s]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:27:33) [PUT]
+  Parameters: {"steps"=>["ssssssssssssssssssssssssssssssss", "s"]}
+Completed in 47ms (View: 1 | 200 OK [http://localhost/ssssssssssssssssssssssssssssssss/s]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:28:00) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 55ms (View: 2 | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:28:19) [GET]
+  Parameters: {"steps"=>["ssssssssssssssssssssssssssssssss"]}
+Completed in 33ms (View: 2 | 404 Not Found [http://localhost/ssssssssssssssssssssssssssssssss]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:28:29) [GET]
+  Parameters: {"steps"=>["ssssssssssssssssssssssssssssssss", "s"]}
+Completed in 48ms (View: 1 | 200 OK [http://localhost/ssssssssssssssssssssssssssssssss/s]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:30:07) [GET]
+  Parameters: {"steps"=>["ssssssssssssssssssssssssssssssss", "s"]}
+Completed in 32ms (View: 1 | 404 Not Found [http://localhost/ssssssssssssssssssssssssssssssss/s]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:31:18) [PUT]
+  Parameters: {"steps"=>["ssssssssssssssssssssssssssssssss", "s"]}
+
+NoMethodError (undefined method `data' for nil:NilClass):
+  app/controllers/application_controller.rb:465:in `do_PUT'
+  app/controllers/application_controller.rb:149:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (70.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:36:10) [PUT]
+  Parameters: {"steps"=>["ssssssssssssssssssssssssssssssss", "s"]}
+Completed in 45ms (View: 1 | 200 OK [http://localhost/ssssssssssssssssssssssssssssssss/s]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:37:48) [PUT]
+  Parameters: {"steps"=>["ssssssssssssssssssssssssssssssss", "s"]}
+Completed in 33ms (View: 1 | 200 OK [http://localhost/ssssssssssssssssssssssssssssssss/s]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:38:21) [PUT]
+  Parameters: {"steps"=>["ssssssssssssssssssssssssssssssss", "s"]}
+Completed in 33ms (View: 1 | 200 OK [http://localhost/ssssssssssssssssssssssssssssssss/s]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:39:06) [PUT]
+  Parameters: {"steps"=>["ssssssssssssssssssssssssssssssss", "s"]}
+Completed in 69ms (View: 1 | 200 OK [http://localhost/ssssssssssssssssssssssssssssssss/s]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:39:20) [PUT]
+  Parameters: {"steps"=>["ssssssssssssssssssssssssssssssss", "s"]}
+Completed in 32ms (View: 1 | 200 OK [http://localhost/ssssssssssssssssssssssssssssssss/s]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:39:30) [PUT]
+  Parameters: {"steps"=>["ssssssssssssssssssssssssssssssss", "s"]}
+
+NameError (undefined local variable or method `root' for #<ApplicationController:0x44d5b50>):
+  app/controllers/application_controller.rb:376:in `do_PUT'
+  app/controllers/application_controller.rb:149:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (25.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:39:43) [PUT]
+  Parameters: {"steps"=>["ssssssssssssssssssssssssssssssss", "s"]}
+Completed in 49ms (View: 2 | 200 OK [http://localhost/ssssssssssssssssssssssssssssssss/s]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 21:47:40) [PUT]
+  Parameters: {"steps"=>["ssssssssssssssssssssssssssssssss", "s"]}
+Completed in 31ms (View: 1 | 400 Bad Request [http://localhost/ssssssssssssssssssssssssssssssss/s]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 22:53:54) [PUT]
+  Parameters: {"steps"=>["ssssssssssssssssssssssssssssssss", "s"]}
+Completed in 46ms (View: 1 | 400 Bad Request [http://localhost/ssssssssssssssssssssssssssssssss/s]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 22:53:56) [PUT]
+  Parameters: {"steps"=>["ssssssssssssssssssssssssssssssss", "s"]}
+Completed in 40ms (View: 1 | 400 Bad Request [http://localhost/ssssssssssssssssssssssssssssssss/s]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 22:54:23) [PUT]
+  Parameters: {"steps"=>["k"]}
+Completed in 63ms (View: 3 | 201 Created [http://localhost/k]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 22:54:43) [GET]
+  Parameters: {"steps"=>["k"]}
+Completed in 31ms (View: 1 | 200 OK [http://localhost/k]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 22:54:52) [GET]
+  Parameters: {"metadata"=>nil, "steps"=>["k"]}
+Completed in 99ms (View: 3 | 200 OK [http://localhost/k?metadata]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 22:55:05) [GET]
+  Parameters: {"metadata:h"=>nil, "steps"=>["k"]}
+Completed in 31ms (View: 1 | 200 OK [http://localhost/k?metadata:h]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 22:55:21) [GET]
+  Parameters: {"metadata:h"=>nil, "steps"=>[]}
+Completed in 36ms (View: 1 | 200 OK [http://localhost/?metadata:h]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 22:55:34) [GET]
+  Parameters: {"children"=>nil, "steps"=>[]}
+Completed in 45ms (View: 1 | 200 OK [http://localhost/?children]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 22:55:42) [GET]
+  Parameters: {"children:0"=>nil, "steps"=>[]}
+Completed in 2ms (View: 1 | 400 Bad Request [http://localhost/?children:0]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 22:55:48) [GET]
+  Parameters: {"children:0-0"=>nil, "steps"=>[]}
+Completed in 71ms (View: 6 | 200 OK [http://localhost/?children:0-0]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 22:57:36) [GET]
+  Parameters: {"children"=>nil, "metadata"=>nil, "steps"=>[]}
+Completed in 38ms (View: 1 | 200 OK [http://localhost/?children;metadata]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 22:57:43) [GET]
+  Parameters: {"children"=>nil, "metadata"=>nil, "steps"=>[]}
+Completed in 31ms (View: 1 | 200 OK [http://localhost/?children;metadata]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 22:57:45) [GET]
+  Parameters: {"children"=>nil, "metadata"=>nil, "steps"=>[]}
+Completed in 73ms (View: 1 | 200 OK [http://localhost/?children;metadata]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 22:57:52) [GET]
+  Parameters: {"children"=>nil, "metadatal"=>nil, "exports"=>nil, "steps"=>[]}
+Completed in 30ms (View: 1 | 400 Bad Request [http://localhost/?children;metadatal;exports]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 22:58:17) [GET]
+  Parameters: {"children"=>nil, "metadata"=>nil, "exports"=>nil, "steps"=>[]}
+Completed in 31ms (View: 1 | 200 OK [http://localhost/?children;metadata;exports]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 22:58:33) [GET]
+  Parameters: {"children"=>nil, "metadata"=>nil, "exports:pp"=>nil, "steps"=>[]}
+Completed in 3ms (View: 1 | 400 Bad Request [http://localhost/?children;metadata;exports:pp]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:14:45) [GET]
+  Parameters: {"children:0-1"=>nil, "metadata"=>nil, "exports:pp"=>nil, "steps"=>[]}
+Completed in 2ms (View: 1 | 400 Bad Request [http://localhost/?children:0-1;metadata;exports:pp]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:14:51) [GET]
+  Parameters: {"children:0-1"=>nil, "metadata"=>nil, "exports"=>nil, "steps"=>[]}
+Completed in 32ms (View: 1 | 200 OK [http://localhost/?children:0-1;metadata;exports]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:14:56) [GET]
+  Parameters: {"children:0-2"=>nil, "metadata"=>nil, "exports"=>nil, "steps"=>[]}
+Completed in 33ms (View: 2 | 200 OK [http://localhost/?children:0-2;metadata;exports]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:15:54) [PUT]
+  Parameters: {"steps"=>["kk"]}
+Completed in 68ms (View: 1 | 201 Created [http://localhost/kk]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:15:57) [PUT]
+  Parameters: {"steps"=>["kkk"]}
+Completed in 44ms (View: 1 | 201 Created [http://localhost/kkk]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:16:17) [GET]
+  Parameters: {"children:0-1"=>nil, "metadata"=>nil, "exports"=>nil, "steps"=>[]}
+Completed in 32ms (View: 1 | 200 OK [http://localhost/?children:0-1;metadata;exports]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:16:24) [GET]
+  Parameters: {"children:0-0"=>nil, "metadata"=>nil, "exports"=>nil, "steps"=>[]}
+Completed in 55ms (View: 1 | 200 OK [http://localhost/?children:0-0;metadata;exports]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:16:31) [GET]
+  Parameters: {"children:0-66"=>nil, "metadata"=>nil, "exports"=>nil, "steps"=>[]}
+Completed in 31ms (View: 1 | 200 OK [http://localhost/?children:0-66;metadata;exports]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:17:03) [GET]
+  Parameters: {"children:-1-66"=>nil, "metadata"=>nil, "exports"=>nil, "steps"=>[]}
+Completed in 2ms (View: 1 | 400 Bad Request [http://localhost/?children:-1-66;metadata;exports]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:18:01) [GET]
+  Parameters: {"children:7-6"=>nil, "metadata"=>nil, "exports"=>nil, "steps"=>[]}
+Completed in 33ms (View: 2 | 200 OK [http://localhost/?children:7-6;metadata;exports]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:18:14) [GET]
+  Parameters: {"children:3-6"=>nil, "metadata"=>nil, "exports"=>nil, "steps"=>[]}
+Completed in 30ms (View: 1 | 200 OK [http://localhost/?children:3-6;metadata;exports]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:18:27) [GET]
+  Parameters: {"children:2-6"=>nil, "metadata"=>nil, "exports"=>nil, "steps"=>[]}
+Completed in 32ms (View: 2 | 200 OK [http://localhost/?children:2-6;metadata;exports]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:19:45) [GET]
+  Parameters: {"children:2-66"=>nil, "metadata"=>nil, "exports"=>nil, "steps"=>[]}
+Completed in 31ms (View: 1 | 200 OK [http://localhost/?children:2-66;metadata;exports]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:21:26) [GET]
+  Parameters: {"children:77-66"=>nil, "metadata"=>nil, "exports"=>nil, "steps"=>[]}
+Completed in 32ms (View: 2 | 200 OK [http://localhost/?children:77-66;metadata;exports]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:21:30) [GET]
+  Parameters: {"children:2-66"=>nil, "metadata"=>nil, "exports"=>nil, "steps"=>[]}
+Completed in 32ms (View: 1 | 200 OK [http://localhost/?children:2-66;metadata;exports]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:22:43) [GET]
+  Parameters: {"children:2-66"=>nil, "metadata"=>nil, "exports"=>nil, "steps"=>[]}
+Completed in 32ms (View: 1 | 200 OK [http://localhost/?children:2-66;metadata;exports]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:23:11) [GET]
+  Parameters: {"children:2-66"=>nil, "metadata"=>nil, "exports"=>nil, "steps"=>[]}
+Completed in 34ms (View: 2 | 200 OK [http://localhost/?children:2-66;metadata;exports]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:23:25) [GET]
+  Parameters: {"children:2-66"=>nil, "metadata"=>nil, "exports"=>nil, "steps"=>[]}
+Completed in 32ms (View: 1 | 200 OK [http://localhost/?children:2-66;metadata;exports]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:24:10) [GET]
+  Parameters: {"children:2-66"=>nil, "metadata"=>nil, "exports"=>nil, "steps"=>[]}
+Completed in 54ms (View: 1 | 200 OK [http://localhost/?children:2-66;metadata;exports]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:29:51) [PUT]
+  Parameters: {"steps"=>["k"]}
+Completed in 64ms (View: 1 | 200 OK [http://localhost/k]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:30:16) [PUT]
+  Parameters: {"steps"=>["k"]}
+Completed in 3ms (View: 1 | 400 Bad Request [http://localhost/k]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:30:24) [PUT]
+  Parameters: {"steps"=>["k"]}
+Completed in 42ms (View: 1 | 200 OK [http://localhost/k]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:30:40) [PUT]
+  Parameters: {"steps"=>["k"]}
+Completed in 65ms (View: 1 | 200 OK [http://localhost/k]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:33:13) [PUT]
+  Parameters: {"steps"=>["k"]}
+Completed in 42ms (View: 1 | 200 OK [http://localhost/k]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:51:34) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 30ms (View: 1 | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:52:14) [PUT]
+  Parameters: {"steps"=>[]}
+Completed in 42ms (View: 1 | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:52:21) [PUT]
+  Parameters: {"steps"=>[]}
+Completed in 41ms (View: 1 | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:52:43) [GET]
+  Parameters: {"metadata:h"=>nil, "steps"=>[]}
+Completed in 30ms (View: 1 | 200 OK [http://localhost/?metadata:h]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:53:22) [GET]
+  Parameters: {"children:0"=>nil, "steps"=>[]}
+Completed in 2ms (View: 1 | 400 Bad Request [http://localhost/?children:0]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:53:27) [GET]
+  Parameters: {"children:0-1"=>nil, "steps"=>[]}
+Completed in 22ms (View: 1 | 200 OK [http://localhost/?children:0-1]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:53:31) [GET]
+  Parameters: {"children:0-5"=>nil, "steps"=>[]}
+Completed in 30ms (View: 1 | 200 OK [http://localhost/?children:0-5]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:54:41) [PUT]
+  Parameters: {"children:0-5"=>nil, "steps"=>[]}
+Completed in 43ms (View: 2 | 200 OK [http://localhost/?children:0-5]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:54:59) [PUT]
+  Parameters: {"steps"=>[]}
+Completed in 62ms (View: 1 | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:55:33) [PUT]
+  Parameters: {"children:0-5"=>nil, "steps"=>[]}
+Completed in 4ms (View: 1 | 400 Bad Request [http://localhost/?children:0-5]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:55:38) [PUT]
+  Parameters: {"children:0-5"=>nil, "steps"=>[]}
+Completed in 42ms (View: 1 | 200 OK [http://localhost/?children:0-5]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-01 23:58:36) [GET]
+  Parameters: {"children:0-5"=>nil, "steps"=>[]}
+Completed in 31ms (View: 1 | 200 OK [http://localhost/?children:0-5]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-02 00:00:33) [GET]
+  Parameters: {"children:0-5"=>nil, "steps"=>[]}
+Completed in 32ms (View: 1 | 200 OK [http://localhost/?children:0-5]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-02 00:00:35) [GET]
+  Parameters: {"children:0-5"=>nil, "steps"=>[]}
+Completed in 31ms (View: 1 | 200 OK [http://localhost/?children:0-5]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-02 00:00:54) [GET]
+  Parameters: {"children:0-5"=>nil, "steps"=>[]}
+Completed in 32ms (View: 1 | 200 OK [http://localhost/?children:0-5]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-02 00:00:55) [GET]
+  Parameters: {"children:0-5"=>nil, "steps"=>[]}
+Completed in 64ms (View: 2 | 200 OK [http://localhost/?children:0-5]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-02 00:00:56) [GET]
+  Parameters: {"children:0-5"=>nil, "steps"=>[]}
+Completed in 32ms (View: 1 | 200 OK [http://localhost/?children:0-5]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-02 00:01:16) [GET]
+  Parameters: {"children:0-5"=>nil, "steps"=>[]}
+Completed in 32ms (View: 1 | 200 OK [http://localhost/?children:0-5]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-02 00:01:17) [GET]
+  Parameters: {"children:0-5"=>nil, "steps"=>[]}
+Completed in 55ms (View: 2 | 200 OK [http://localhost/?children:0-5]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-02 00:01:18) [GET]
+  Parameters: {"children:0-5"=>nil, "steps"=>[]}
+Completed in 31ms (View: 1 | 200 OK [http://localhost/?children:0-5]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-02 00:02:13) [GET]
+  Parameters: {"children:0-5"=>nil, "steps"=>[]}
+Completed in 33ms (View: 1 | 200 OK [http://localhost/?children:0-5]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-02 00:02:49) [GET]
+  Parameters: {"children:0-5"=>nil, "steps"=>[]}
+Completed in 31ms (View: 1 | 200 OK [http://localhost/?children:0-5]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-02 00:03:52) [GET]
+  Parameters: {"children:0-5"=>nil, "steps"=>[]}
+Completed in 32ms (View: 1 | 200 OK [http://localhost/?children:0-5]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-02 00:04:00) [GET]
+  Parameters: {"children:5-5"=>nil, "steps"=>[]}
+Completed in 75ms (View: 1 | 200 OK [http://localhost/?children:5-5]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-02 00:04:05) [GET]
+  Parameters: {"children:5-0"=>nil, "steps"=>[]}
+Completed in 31ms (View: 1 | 200 OK [http://localhost/?children:5-0]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-02 00:27:52) [DELETE]
+  Parameters: {"steps"=>["kkk"]}
+Completed in 32ms (View: 1 | 406 Not Acceptable [http://localhost/kkk]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-02 00:27:58) [DELETE]
+  Parameters: {"steps"=>["kkk"]}
+Completed in 42ms (View: 1 | 200 OK [http://localhost/kkk]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-02 00:28:34) [GET]
+  Parameters: {"steps"=>["kkk"]}
+Completed in 32ms (View: 1 | 404 Not Found [http://localhost/kkk]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-02 00:28:53) [PUT]
+  Parameters: {"steps"=>["kkk", "ss"]}
+Completed in 31ms (View: 1 | 400 Bad Request [http://localhost/kkk/ss]

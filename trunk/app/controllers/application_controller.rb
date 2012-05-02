@@ -40,13 +40,13 @@ class ApplicationController < ActionController::Base
       pathWithoutFormat = request.path.sub(/#{format}/,'')
       
       #find parent path
-      parentpath = getParentURI(pathWithoutFormat)
+      parentPath = getParentPath(pathWithoutFormat)
 
       #the parent path of root('/') is nil
-      if parentpath == pathWithoutFormat && pathWithoutFormat == '/'
+      if parentPath == pathWithoutFormat && pathWithoutFormat == '/'
         #so current path is root
         root       = true
-        parentpath = nil
+        parentPath = nil
       end
       ##END OF PATH PROCESS##
 
@@ -58,7 +58,7 @@ class ApplicationController < ActionController::Base
       request.query_string.split(';').each { |item|
         unless item =~ /^(value|children):\d+-\d+$|^metadata:\w+$|^\w+$/
           #parameters ERROR
-          invaildQueryParams['ERROR'] = "query_parameters ERROR \'#{request.query_string}\'"
+          invaildQueryParams[:ERROR] = "query_parameters ERROR \'#{request.query_string}\'"
         end
       }
 
@@ -66,22 +66,22 @@ class ApplicationController < ActionController::Base
         #match format 1, key:value1-value2
         #e.g. "field:0-900"
         if orik =~ /^(value|children):\d+-\d+$/
-          k = orik.match(/^\w+/)[0]
+          k = orik.match(/^\w+/)[0].to_sym
           tempv = orik.match(/(\d+)-(\d+)$/)
           v = {
-            'begin' => tempv[1].to_i,
-            'end' => tempv[2].to_i
+            :begin => tempv[1].to_i,
+            :end => tempv[2].to_i
           }
           vaildQueryParams[k] = v
         elsif orik =~ /^metadata:\w+$/
         #match format 2, field:<prefix>
-          k = "metadata"
+          k = :metadata
           v = orik.match(/\w+$/)[0]
           vaildQueryParams[k] = v
         elsif orik =~ /^\w+$/
         #match format 3,didn't specify a value
         #e.g. "field"
-          k = orik.match(/^\w+/)[0]
+          k = orik.match(/^\w+/)[0].to_sym
           vaildQueryParams[k] = nil
         end
         # #match error format,value is something strange
@@ -93,7 +93,7 @@ class ApplicationController < ActionController::Base
         #   invaildQueryParams[k] = v
       }
 
-      unless invaildQueryParams['ERROR'].nil?
+      unless invaildQueryParams[:ERROR].nil?
         #The query string is in incorrect format, return
         render :json => invaildQueryParams,:status => :bad_request,:content_type => 'application/json'
         return
@@ -101,39 +101,42 @@ class ApplicationController < ActionController::Base
       ##END OF QUERY PARAMETERS PROCESS##
 
       result = {
-        'params'           => params,
-        'ContentType'      => request.headers['CONTENT_TYPE'],
-        'Accept'           => request.headers['ACCEPT'],
-        :root              => root,
-        'query_string'     => request.query_string,
-        'format'           => format,
-        'path'             => path,
-        'parentpath'       => parentpath,
-        'query_parameters' => vaildQueryParams,
-        'request.method'   => request.method,
-        'raw_post'         => request.raw_post
+        :params          => params,
+        :contentType     => request.headers['CONTENT_TYPE'],
+        :acceptType      => request.headers['ACCEPT'],
+        :root            => root,
+        :format          => format,
+        :path            => path,
+        :parentPath      => parentPath,
+        :queryParameters => vaildQueryParams,
+        :requestMethod   => request.method,
+        :rawPost         => request.raw_post
       }
 
       #Translate request body into JSON
-      unless request.raw_post.empty?
-        body_json      = JSON(request.raw_post)
-        result['body'] = body_json
+      unless result[:rawPost].empty?
+        if valid_json?(result[:rawPost]) == false
+          render :json => {'ERROR' => "body is not a vaild json object"},:content_type => 'application/json',:status => :bad_request
+          return
+        end
+        body_json     = JSON.parse(result[:rawPost], :symbolize_names => true)
+        result[:body] = body_json
       end
 
       #Find request item's type
-      itemType   = getItemType(request.headers['CONTENT_TYPE'])
-      acceptType = []
-      getAcceptType(request.headers['ACCEPT'], acceptType)
+      itemType   = getItemType(result[:contentType])
+      acceptType = Array.new
+      getAcceptType(result[:acceptType], acceptType)
       
-      result['itemType']   = itemType
-      result['acceptType'] = acceptType
+      result[:itemType]   = itemType
+      result[:acceptType] = acceptType
 
       #Is it a allowed method for current request URI?
-      result['method.allow?'] = methodAllowed?(request.path.last, request.method, itemType, root, format)
+      result[:methodAllow?] = methodAllowed?(request.path.last, request.method, itemType, root, format)
 
-      unless result['method.allow?'] && result['itemType'] != nil
+      unless result[:methodAllow?] && result[:itemType] != nil
         #method is not allowed, return
-        render :json => {"ERROR" => "Method or ContentType not allowed"},:content_type => 'application/json',:status => :method_not_allowed
+        render :json => {'ERROR' => "Method or ContentType not allowed"},:content_type => 'application/json',:status => :method_not_allowed
         return
       end
 
@@ -152,8 +155,8 @@ class ApplicationController < ActionController::Base
          return
       end
 
-      # result['httpmethod'] = request.method
-      # headers['requestheader'] = request.headers.to_a.join('\n').to_s
+      # result[:httpMethod] = request.method
+      # headers[:requestHeader] = request.headers.to_a.join('\n').to_s
 
       # item = Item.new
       # item.path = path
@@ -163,8 +166,17 @@ class ApplicationController < ActionController::Base
       #   render :json => d.value,:content_type => 'application/json'
       # end
 
-      # hh = eval("#{result['body'].inspect}")
+      # hh = eval("#{result[:body].inspect}")
       render :json => result,:content_type => 'application/json', :status => :ok
+    end
+  end
+
+  def valid_json? _json
+    begin
+      JSON(_json)
+      return true
+    rescue Exception => e
+      return false
     end
   end
 
@@ -204,15 +216,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def getParentURI(pathURI)
-    parentURI = (case pathURI.last
+  def getParentPath(pathWithoutFormat)
+    parentPath = (case pathWithoutFormat.last
     when '/'
-      pathURI[0..(pathURI.length-2)]
+      pathWithoutFormat[0..(pathWithoutFormat.length-2)]
     else 
-      pathURI.sub(/\/(\w|-|,)+$/,'')
+      pathWithoutFormat.sub(/\/(\w|-|,)+$/,'')
     end)
-    parentURI = '/' if parentURI == ""
-    return parentURI
+    parentPath = '/' if parentPath == ""
+    return parentPath
   end
 
   def methodAllowed?(pathLastChar, method, itemType, root, format)
@@ -305,20 +317,20 @@ class ApplicationController < ActionController::Base
 
   def updateDataValue(createItem, key, result, item)
     if createItem == true
-      if result['body'].nil?
+      if result[:body].nil?
         nil
       else
-        if result['body'].has_key?(key)
-          result['body'][key]
+        if result[:body].has_key?(key)
+          result[:body][key]
         else
           nil
         end
       end
     else
-      if result['query_parameters'].empty? == true
-        if result['body'] != nil
-          if result['body'].has_key?(key)
-            result['body'][key]
+      if result[:queryParameters].empty? == true
+        if result[:body] != nil
+          if result[:body].has_key?(key)
+            result[:body][key]
           else
             item.data[key]
           end
@@ -326,10 +338,10 @@ class ApplicationController < ActionController::Base
           item.data[key]
         end
       else
-        if result['query_parameters'].has_key?(key)
-          if result['body'] != nil
-            if result['body'].has_key?(key)
-              result['body'][key]
+        if result[:queryParameters].has_key?(key)
+          if result[:body] != nil
+            if result[:body].has_key?(key)
+              result[:body][key]
             else
               nil
             end
@@ -356,25 +368,26 @@ class ApplicationController < ActionController::Base
     #   render :json => d.value,:content_type => 'application/json'
     # end
 
-    findParentPath = Item.all(:path => result['parentpath'])
+    findParentPath = Item.all(:path => result[:parentPath])
+
     if findParentPath.empty?
       #PUT IS NOT ALLOWED FOR THIS URI ,BECAUSE PARENTPATH DOES NOT EXIT!
-      if result['root'] == false
-        render :json => {"ERROR" => "put is not allowed for this uri ,because parentpath does not exist!"},:content_type => 'application/json', :status => :bad_request
+      if result[:root] == false
+        render :json => {'ERROR' => "put is not allowed for this uri ,because parentPath does not exist!"},:content_type => 'application/json', :status => :bad_request
         return
       end
-    elsif findParentPath.first.data["itemType"] != (:container || :domain)
+    elsif findParentPath.first.data[:itemType] != (:container || :domain)
       #PUT IS NOT ALLOWED FOR THIS URI ,BECAUSE PARENTPATH IS NOT A CONTAINER
-      render :json => {"ERROR" => "put is not allowed for this uri ,because parentpath is not a container"},:content_type => 'application/json', :status => :bad_request
+      render :json => {'ERROR' => "put is not allowed for this uri ,because parentPath is not a container"},:content_type => 'application/json', :status => :bad_request
       return
     end
     
     #if item already exited, do a update
-    findPath = Item.all(:path => result['path'])
+    findPath = Item.all(:path => result[:path])
     case findPath.empty?
       when true
         if request.headers['X-CDMI-MustExist'] == "true"
-          render :json => {"ERROR" => "An update was attempted on a container that does not exist, and the X-CDMI-MustExist header element was set to \"true\"."}, :content_type => 'application/json', :status => :not_found
+          render :json => {'ERROR' => "An update was attempted on a container that does not exist, and the X-CDMI-MustExist header element was set to \"true\"."}, :content_type => 'application/json', :status => :not_found
           return
         end
         item       = Item.new
@@ -382,10 +395,10 @@ class ApplicationController < ActionController::Base
       when false
         if request.headers['X-CDMI-NoClobber'] == "true"
           headers['ERROR'] = "The operation conflicts because the container already exists and the X-CDMI-NoClobber header element was set to true."
-          render :json => {"ERROR" => "The operation conflicts because the container already exists and the X-CDMI-NoClobber header element was set to \"true\"."}, :content_type => 'application/json', :status => :not_modified
+          render :json => {'ERROR' => "The operation conflicts because the container already exists and the X-CDMI-NoClobber header element was set to \"true\"."}, :content_type => 'application/json', :status => :not_modified
           return
         end
-        item       = ( ( result['acceptType'].include?(result['itemType']) && result['itemType'] == findPath.first.data['itemType']) ? findPath.first : nil)
+        item       = ( ( result[:acceptType].include?(result[:itemType]) && result[:itemType] == findPath.first.data[:itemType]) ? findPath.first : nil)
         createItem = false  # do a update
       else
         return
@@ -393,14 +406,14 @@ class ApplicationController < ActionController::Base
 
     if item.nil?
       if createItem == true
-        render :json => {"ERROR" => "create item failed"},:content_type => 'application/json', :status => :continue
+        render :json => {'ERROR' => "create item failed"},:content_type => 'application/json', :status => :continue
         return
       elsif createItem == false
         render :json => {
-          "ERROR"                           => "the item can not be updated, which's type is not the same as request type",
-          "result['itemType']"              => result['itemType'],
-          "result['acceptType']"            => result['acceptType'],
-          "findPath.first.data['itemType']" => findPath.first.data['itemType']
+          'ERROR'                          => "the item can not be updated, which's type is not the same as request type",
+          'result[:itemType]'              => result[:itemType],
+          'result[:acceptType]'            => result[:acceptType],
+          'findPath.first.data[:itemType]' => findPath.first.data[:itemType]
         },:content_type => 'application/json', :status => :not_acceptable
         return
       else
@@ -408,29 +421,29 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    case result['itemType']
+    case result[:itemType]
       when :container
-        item.path    = result['path']
+        item.path    = result[:path]
         item.referID = nil  #not ready yet
         item.data    = {
-          "objectURI"        => result['path'],
-          "objectID"         => item.id,
-          "parentURI"        => result['parentpath'],
-          "domainURI"        => nil,  #not ready yet
-          "capabilitiesURI"  => "/cdmi_capabilities/#{result['itemType']}",
-          "itemType"         => :container,
-          "completionStatus" => nil,  #not ready yet
-          "percentComplete"  => nil,  #not ready yet
-          "metadata"         => updateDataValue(createItem, "metadata", result, item),
-          "exports"          => nil,  #not ready yet
-          "snapshots"        => nil,  #not ready yet
-          "children"         => createItem == true ? [] : item.data['children']
+          :objectURI        => result[:path],
+          :objectID         => item.id,
+          :parentURI        => result[:parentPath],
+          :domainURI        => nil,  #not ready yet
+          :capabilitiesURI  => "/cdmi_capabilities/#{result[:itemType]}",
+          :itemType         => :container,
+          :completionStatus => nil,  #not ready yet
+          :percentComplete  => nil,  #not ready yet
+          :metadata         => ( md = updateDataValue(createItem, :metadata, result, item) ; md.nil? ? Hash.new : md ),
+          :exports          => nil,  #not ready yet
+          :snapshots        => nil,  #not ready yet
+          :children         => createItem == true ? Array.new : item.data[:children]
           }
-        childrenLength             = item.data['children'].length
-        item.data['childrenrange'] = childrenLength > 0 ? "0-#{childrenLength - 1}" : nil
+        childrenLength            = item.data[:children].length
+        item.data[:childrenrange] = childrenLength > 0 ? "0-#{childrenLength - 1}" : nil
         item.save
 
-        render :json => item.data,:content_type => "application/vnd.org.snia.cdmi.#{result['itemType']}+json",:status => (createItem == true ? :created : :ok)
+        render :json => item.data,:content_type => "application/vnd.org.snia.cdmi.#{result[:itemType]}+json",:status => (createItem == true ? :created : :ok)
         
       when :dataobject
         #to be processd..
@@ -446,12 +459,12 @@ class ApplicationController < ActionController::Base
 
     if createItem == true
       parentPath       = findParentPath.first
-      currentDirectory = result['path'].scan(/\/([^\/]+?)$/).first.first
+      currentDirectory = result[:path].scan(/\/([^\/]+?)$/).first.first
       currentDirectory << '/'
-      parentPath.data['children'] << currentDirectory
-      parentPath.data['children'].sort!
-      parentPathChildrenLength         = parentPath.data['children'].length
-      parentPath.data['childrenrange'] = "0-#{parentPathChildrenLength - 1}"
+      parentPath.data[:children] << currentDirectory
+      parentPath.data[:children].sort!
+      parentPathChildrenLength        = parentPath.data[:children].length
+      parentPath.data[:childrenrange] = "0-#{parentPathChildrenLength - 1}"
       parentPath.save
     end
 
@@ -459,102 +472,100 @@ class ApplicationController < ActionController::Base
   end
 
   def do_GET(result)
-    findPath = Item.all(:path => result['path'])
+    findPath = Item.all(:path => result[:path])
     case findPath.empty?
       when true
         #item does not exit
-        render :json => {"ERROR" => "ITEM DOES NOT EXIT"},:content_type => 'application/json', :status => :not_found
+        render :json => {'ERROR' => "ITEM DOES NOT EXIT"},:content_type => 'application/json', :status => :not_found
         return
       else
         item = findPath.first
     end
 
-    if result['acceptType'].empty? || !result['acceptType'].include?(item.data['itemType'])
-      render :json => {"ERROR" => "THE SERVER IS UNABLE TO PROVIDE THE OBJECT IN THE ACCEPT-TYPE SPECIFIED IN THE ACCEPT HEADER."},:content_type => 'application/json', :status => :not_acceptable
+    if result[:acceptType].empty? || !result[:acceptType].include?(item.data[:itemType])
+      render :json => {'ERROR' => "THE SERVER IS UNABLE TO PROVIDE THE OBJECT IN THE ACCEPT-TYPE SPECIFIED IN THE ACCEPT HEADER."},:content_type => 'application/json', :status => :not_acceptable
       return
     end
 
-    case result['itemType']
+    case result[:itemType]
       when :object
-        if result['query_parameters'].empty?
-          render :json => item.data,:content_type =>"application/vnd.org.snia.cdmi.#{item.data['itemType']}+json",:status => :ok
+        if result[:queryParameters].empty?
+          render :json => item.data,:content_type =>"application/vnd.org.snia.cdmi.#{item.data[:itemType]}+json",:status => :ok
           return
         else
           getResult = Hash.new
-          result['query_parameters'].each { |key,value|
+          result[:queryParameters].each { |key,value|
             if item.data.has_key?(key)
               case value.class.to_s
-                when "NilClass"
+                when 'NilClass'
                   getResult[key] = item.data[key]
-                when "String"
+                when 'String'
                   #metadata:<prefix>
-                  getResult[key] = Hash.new
-                  item.data['metadata'].nil? ? nil : item.data['metadata'].each_key { |mk|
-                    mk.start_with?(value) ? (getResult[key][mk] = item.data['metadata'][mk]) : next
+                  getResult[:metadata] = Hash.new
+                  item.data[:metadata].nil? ? nil : item.data[:metadata].each_key { |mk|
+                    mk.to_s.start_with?(value) ? (getResult[:metadata][mk] = item.data[:metadata][mk]) : next
                   }
-                when "Hash"
+                when 'Hash'
                   #value:<range>
                   #children:<range>
-                  if ( value['begin'] > value['end'] ) || ( value['begin'] < 0 ) || ( value['end'] > ( item.data[key].nil? ? -1 : item.data[key].length - 1 ) )
-                    # render :json => {"ERROR" => "INVALID QUERY PARAMETERS RANGE IN THE REQUEST"},:content_type => 'application/json', :status => :bad_request
-                    # return
-                    getResult[key] = nil
-                  end
-                  getResult[key] = item.data[key][value['begin']..value['end']]
+                  # if ( value[:begin] > value[:end] ) || ( value[:end] > ( item.data[key].nil? ? -1 : (item.data[key].length - 1) ) )
+                  #   getResult[key] = nil
+                  # end
+                  getResult[key] = item.data[key].nil? ? nil : item.data[key][value[:begin]..value[:end]]
                 else
               end
             else
-              render :json => {"ERROR" => "QUERY FIELDS NOT DEFINED"},:content_type => 'application/json', :status => :bad_request
+              render :json => {'ERROR' => "QUERY FIELDS NOT DEFINED"},:content_type => 'application/json', :status => :bad_request
               return
             end
           }
-          render :json => getResult,:content_type => "application/vnd.org.snia.cdmi.#{item.data['itemType']}+json", :status => :ok
+          render :json => getResult,:content_type => "application/vnd.org.snia.cdmi.#{item.data[:itemType]}+json", :status => :ok
           return
         end
       else
-        render :json => {"ERROR" => "INCORRECT CONTENT TYPE IN REQUEST HEADER"},:content_type => 'application/json', :status => :bad_request
+        render :json => {'ERROR' => "INCORRECT CONTENT TYPE IN REQUEST HEADER"},:content_type => 'application/json', :status => :bad_request
         return
     end
   end
 
   def do_DELETE(result)
-    findPath = Item.all(:path => result['path'])
+    findPath = Item.all(:path => result[:path])
     case findPath.empty?
       when true
         #item does not exit
-        render :json => {"ERROR" => "ITEM DOES NOT EXIT"},:content_type => 'application/json', :status => :not_found
+        render :json => {'ERROR' => "ITEM DOES NOT EXIT"},:content_type => 'application/json', :status => :not_found
         return
       else
-        item = ( ( result['acceptType'].include?(result['itemType']) && result['itemType'] == findPath.first.data['itemType']) ? findPath.first : nil)
+        item = ( ( result[:acceptType].include?(result[:itemType]) && result[:itemType] == findPath.first.data[:itemType]) ? findPath.first : nil)
     end
 
     if item.nil?
       render :json => {
-        "ERROR"                           => "the item can not be deleted, which's type is not the same as request type",
-        "result['itemType']"              => result['itemType'],
-        "result['acceptType']"            => result['acceptType'],
-        "findPath.first.data['itemType']" => findPath.first.data['itemType']
+        'ERROR'                          => "the item can not be deleted, which's type is not the same as request type",
+        'result[:itemType]'              => result[:itemType],
+        'result[:acceptType]'            => result[:acceptType],
+        'findPath.first.data[:itemType]' => findPath.first.data[:itemType]
       },:content_type => 'application/json', :status => :not_acceptable
       return
     end
 
-    case result['itemType']
+    case result[:itemType]
       when :container
-        if item.data['children'].length != 0
+        if item.data[:children].length != 0
           #container isn't empty, can't delete it
           render :json => {
-            "ERROR"                 => "the container is not empty, can not be deleted",
-            "item.data['children']" => item.data['children']
+            'ERROR'                 => "the container is not empty, can not be deleted",
+            'item.data[:children]' => item.data[:children]
           },:content_type => 'application/json', :status => :conflict
         end
 
-        parentPath       = Item.all(:path => result['parentpath']).first
-        currentDirectory = result['path'].scan(/\/([^\/]+?)$/).first.first
+        parentPath       = Item.all(:path => result[:parentPath]).first
+        currentDirectory = result[:path].scan(/\/([^\/]+?)$/).first.first
         currentDirectory << '/'
-        parentPath.data['children'].include?(currentDirectory) ? parentPath.data['children'].delete(currentDirectory) : (render :json => {"ERROR" => "parentpath does not have this container"},:content_type => "application/json",:status => :conflict ; return)
-        parentPath.data['children'].sort!
-        parentPathChildrenLength         = parentPath.data['children'].length
-        parentPath.data['childrenrange'] = "0-#{parentPathChildrenLength - 1}"
+        parentPath.data[:children].include?(currentDirectory) ? parentPath.data[:children].delete(currentDirectory) : (render :json => {'FATAL ERROR!!!!!!!!!!!!!!!' => "parentPath does not have this container"},:content_type => "application/json",:status => :conflict ; return)
+        parentPath.data[:children].sort!
+        parentPathChildrenLength        = parentPath.data[:children].length
+        parentPath.data[:childrenrange] = "0-#{parentPathChildrenLength - 1}"
         parentPath.save
 
         item.destroy

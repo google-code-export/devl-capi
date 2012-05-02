@@ -15,19 +15,19 @@ def create_root_path
   item.path    = '/'
   item.referID = nil
   item.data    = {
-    "objectURI"        => '/',
-    "objectID"         => item.id,
-    "parentURI"        => nil,
-    "domainURI"        => nil,  #not ready yet
-    "capabilitiesURI"  => "/cdmi_capabilities/container",
-    "itemType"         => :container,
-    "completionStatus" => nil,  #not ready yet
-    "percentComplete"  => nil,  #not ready yet
-    "metadata"         => nil,
-    "exports"          => nil,  #not ready yet
-    "snapshots"        => nil,  #not ready yet
-    "children"         => [],
-    "childrenrange"    => nil
+    :objectURI        => '/',
+    :objectID         => item.id,
+    :parentURI        => nil,
+    :domainURI        => nil,  #not ready yet
+    :capabilitiesURI  => "/cdmi_capabilities/container",
+    :itemType         => :container,
+    :completionStatus => nil,  #not ready yet
+    :percentComplete  => nil,  #not ready yet
+    :metadata         => {},
+    :exports          => nil,  #not ready yet
+    :snapshots        => nil,  #not ready yet
+    :children         => [],
+    :childrenrange    => nil
   }
   item.save
 end

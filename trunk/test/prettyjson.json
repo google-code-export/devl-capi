@@ -1,3 +1,6 @@
 {
-    "metadata": "Hello"
+    "metadata": {
+        "hello": "world",
+        "hello": "Mom"
+    }
 }
