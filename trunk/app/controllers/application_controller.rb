@@ -12,7 +12,12 @@ class ApplicationController < ActionController::Base
     steps      = params[:steps]
     containers = steps.to_a
     root       = false
+    accessByObjectId = false
 
+    if containers.length == 2 && containers.first == "cdmi_objectid" && request.path.last != '/'
+      accessByObjectId = true
+    end
+    
     headers['X-CDMI-Specification-Version'] = '1.0'
 
     #if URI is illegal
@@ -101,17 +106,18 @@ class ApplicationController < ActionController::Base
       ##END OF QUERY PARAMETERS PROCESS##
 
       result = {
-        :name            => containers.last,
-        :params          => params,
-        :contentType     => request.headers['CONTENT_TYPE'],
-        :acceptType      => request.headers['ACCEPT'],
-        :root            => root,
-        :format          => format,
-        :path            => path,
-        :parentPath      => parentPath,
-        :queryParameters => vaildQueryParams,
-        :requestMethod   => request.method,
-        :rawPost         => request.raw_post
+        :name             => containers.last,
+        :accessByObjectId => accessByObjectId,
+        :params           => params,
+        :contentType      => request.headers['CONTENT_TYPE'],
+        :acceptType       => request.headers['ACCEPT'],
+        :root             => root,
+        :format           => format,
+        :path             => path,
+        :parentPath       => parentPath,
+        :queryParameters  => vaildQueryParams,
+        :requestMethod    => request.method,
+        :rawPost          => request.raw_post
       }
 
       #Translate request body into JSON
@@ -133,7 +139,7 @@ class ApplicationController < ActionController::Base
       result[:acceptType] = acceptType
 
       #Is it a allowed method for current request URI?
-      result[:methodAllow?] = methodAllowed?(request.path.last, request.method, itemType, root, format)
+      result[:methodAllow?] = methodAllowed?(request.path.last, request.method, itemType, root, format, accessByObjectId)
 
       unless result[:methodAllow?]
         #method is not allowed, return
@@ -233,7 +239,15 @@ class ApplicationController < ActionController::Base
     return parentPath
   end
 
-  def methodAllowed?(pathLastChar, method, itemType, root, format)
+  def methodAllowed?(pathLastChar, method, itemType, root, format, accessByObjectId)
+    if accessByObjectId == true
+      if method == :post
+        return false
+      else
+        return true
+      end
+    end
+
     case pathLastChar
       when '/'
         case method
@@ -368,28 +382,38 @@ class ApplicationController < ActionController::Base
 
   def do_PUT(result)
 
-    findParentItem = Item.first(:path => result[:parentPath])
+    if result[:accessByObjectId] == true
+      findPath = Item.find(BSON::ObjectId.from_string(result[:name]))
+    else
+      findParentItem = Item.first(:path => result[:parentPath])
 
-    if findParentItem.nil?
-      #PUT IS NOT ALLOWED FOR THIS URI ,BECAUSE PARENTPATH DOES NOT EXIT!
-      if result[:root] == false
-        render :json => {'ERROR' => "put is not allowed for this uri ,because parentPath does not exist!"},:content_type => 'application/json', :status => :bad_request
+      if findParentItem.nil?
+        #PUT IS NOT ALLOWED FOR THIS URI ,BECAUSE PARENTPATH DOES NOT EXIT!
+        if result[:root] == false
+          render :json => {'ERROR' => "put is not allowed for this uri ,because parentPath does not exist!"},:content_type => 'application/json', :status => :bad_request
+          return
+        end
+      elsif [:container, :domain].include?(findParentItem.itemType) == false
+        #PUT IS NOT ALLOWED FOR THIS URI ,BECAUSE PARENTPATH IS NOT A CONTAINER
+        render :json => {'ERROR' => "put is not allowed for this uri ,because parentPath is not a container"},:content_type => 'application/json', :status => :bad_request
         return
       end
-    elsif [:container, :domain].include?(findParentItem.itemType) == false
-      #PUT IS NOT ALLOWED FOR THIS URI ,BECAUSE PARENTPATH IS NOT A CONTAINER
-      render :json => {'ERROR' => "put is not allowed for this uri ,because parentPath is not a container"},:content_type => 'application/json', :status => :bad_request
-      return
+      #if item already exited, do a update
+      findPath = Item.first(:path => result[:path])
     end
     
-    #if item already exited, do a update
-    findPath = Item.first(:path => result[:path])
     case findPath.nil?
       when true
         if request.headers['X-CDMI-MustExist'] == "true"
           render :json => {'ERROR' => "An update was attempted on a container that does not exist, and the X-CDMI-MustExist header element was set to \"true\"."}, :content_type => 'application/json', :status => :not_found
           return
         end
+
+        if result[:accessByObjectId] == true
+          render :json => {'ERROR' => "can not create item via this uri"}, :content_type => 'application/json', :status => :conflicts
+          return
+        end
+
         item       = Item.new
         createItem = true
       when false
@@ -432,7 +456,7 @@ class ApplicationController < ActionController::Base
             :objectURI       => result[:path],
             :objectID        => item.id,
             :parentURI       => result[:parentPath],
-            :capabilitiesURI => "/cdmi_capabilities/#{result[:itemType]}",
+            :capabilitiesURI => "/cdmi_capabilities/#{item.itemType}",
             :metadata        => ( md = updateDataValue(createItem, :metadata, result, item, :container) ; md.nil? ? Hash.new : md )
           )
 
@@ -452,7 +476,7 @@ class ApplicationController < ActionController::Base
             :objectURI       => result[:path],
             :objectID        => item.id,
             :parentURI       => result[:parentPath],
-            :capabilitiesURI => "/cdmi_capabilities/#{result[:itemType]}",
+            :capabilitiesURI => "/cdmi_capabilities/#{item.itemType}",
             :metadata        => ( md = updateDataValue(createItem, :metadata, result, item, :dataobject) ; md.nil? ? Hash.new : md ),
             :mimetype        => ( md = updateDataValue(createItem, :mimetype, result, item, :dataobject) ; md.nil? ? "text/plain" : md ),
             :value           => ( md = updateDataValue(createItem, :value, result, item, :dataobject) ; md.nil? ? String.new : md )
@@ -497,7 +521,13 @@ class ApplicationController < ActionController::Base
   end
 
   def do_GET(result)
-    findPath = Item.first(:path => result[:path])
+
+    if result[:accessByObjectId] == true
+      findPath = Item.find(BSON::ObjectId.from_string(result[:name]))
+    else
+      findPath = Item.first(:path => result[:path])
+    end
+
     case findPath.nil?
       when true
         #item does not exit
@@ -551,7 +581,13 @@ class ApplicationController < ActionController::Base
   end
 
   def do_DELETE(result)
-    findPath = Item.first(:path => result[:path])
+
+    if result[:accessByObjectId] == true
+      findPath = Item.find(BSON::ObjectId.from_string(result[:name]))
+    else
+      findPath = Item.first(:path => result[:path])
+    end
+
     case findPath.nil?
       when true
         #item does not exit
@@ -571,7 +607,7 @@ class ApplicationController < ActionController::Base
       return
     end
 
-    case result[:itemType]
+    case item.itemType
       when :container
         if item.container.children.length != 0
           #container isn't empty, can't delete it
@@ -596,13 +632,13 @@ class ApplicationController < ActionController::Base
 
     end
 
-    findParentItem   = Item.first(:path => result[:parentPath])
+    findParentItem   = Item.first(:path => (eval "item.#{item.itemType}.parentURI"))
     parentContainer  = findParentItem.container
-    currentDirectory = (eval "item.#{result[:itemType]}.objectName") + (result[:itemType] == :container ? '/' : "")
+    currentDirectory = (eval "item.#{item.itemType}.objectName") + (item.itemType == :container ? '/' : "")
     parentContainer.children.include?(currentDirectory) ? parentContainer.children.delete(currentDirectory) : (render :json => {'FATAL ERROR!!!!!!!!!!!!!!!' => "parentPath does not have this dataobject"},:content_type => "application/json",:status => :conflict ; return)
     parentChildrenLength          = parentContainer.children.length
     parentContainer.childrenrange = (parentChildrenLength == 0 ? nil : "0-#{parentChildrenLength - 1}")
-    (eval "parentContainer.sub#{result[:itemType]}s_item_ids.include?(item.id)") ? (eval "parentContainer.sub#{result[:itemType]}s_item_ids.delete(item.id)") : (render :json => {'FATAL ERROR!!!!!!!!!!!!!!!' => "parentPath does not have this dataobject 222222222"},:content_type => "application/json",:status => :conflict ; return)
+    (eval "parentContainer.sub#{item.itemType}s_item_ids.include?(item.id)") ? (eval "parentContainer.sub#{item.itemType}s_item_ids.delete(item.id)") : (render :json => {'FATAL ERROR!!!!!!!!!!!!!!!' => "parentPath does not have this dataobject 222222222"},:content_type => "application/json",:status => :conflict ; return)
       
     findParentItem.save
 
