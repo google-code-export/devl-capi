@@ -5387,3 +5387,1348 @@ Completed in 32ms (View: 1 | 404 Not Found [http://localhost/kkk]
 Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-02 00:28:53) [PUT]
   Parameters: {"steps"=>["kkk", "ss"]}
 Completed in 31ms (View: 1 | 400 Bad Request [http://localhost/kkk/ss]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:25:28) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+
+NoMethodError (undefined method `data' for #<Item:0x463e9d8>):
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/dirty.rb:26:in `method_missing'
+  app/controllers/application_controller.rb:379:in `do_PUT'
+  app/controllers/application_controller.rb:148:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (12.0ms)
+Rendered rescues/_request_and_response (19.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:26:56) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 49ms (View: 1 | 400 Bad Request [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:32:29) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+
+NoMethodError (undefined method `itemType' for nil:NilClass):
+  app/controllers/application_controller.rb:407:in `do_PUT'
+  app/controllers/application_controller.rb:148:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (13.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:33:45) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 61ms (View: 1 | 100 Continue [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:34:14) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 87ms (View: 1 | 100 Continue [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:34:15) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 43ms (View: 1 | 100 Continue [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:34:39) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 43ms (View: 2 | 100 Continue [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:35:48) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 28ms (View: 1 | 100 Continue [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:36:26) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 26ms (View: 1 | 100 Continue [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:36:56) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 29ms (View: 3 | 100 Continue [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:37:04) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 28ms (View: 2 | 100 Continue [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:37:37) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 3064ms (View: 3 | 100 Continue [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:38:59) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 3312ms (View: 1 | 400 Bad Request [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:39:29) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 29ms (View: 3 | 100 Continue [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:40:51) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 46ms (View: 1 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:41:13) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 51ms (View: 0 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:42:10) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 3227ms (View: 1 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:42:36) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 27ms (View: 1 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:42:43) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 55ms (View: 1 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:42:45) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 27ms (View: 1 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:42:46) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 27ms (View: 1 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:42:46) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 79ms (View: 1 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:42:47) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 28ms (View: 1 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:42:47) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 27ms (View: 1 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:42:48) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 76ms (View: 1 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:42:48) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 41ms (View: 2 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:42:48) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 48ms (View: 1 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:42:48) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 79ms (View: 1 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:42:49) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 28ms (View: 1 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:42:49) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 28ms (View: 1 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:42:49) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 27ms (View: 1 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:42:49) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 59ms (View: 1 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:42:50) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 27ms (View: 1 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:42:50) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 45ms (View: 1 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:42:50) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 32ms (View: 1 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:42:51) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 27ms (View: 1 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:43:09) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 53ms (View: 1 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:43:10) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 27ms (View: 1 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:43:21) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 26ms (View: 1 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:44:15) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 3066ms (View: 1 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:44:22) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 29ms (View: 1 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:44:23) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 28ms (View: 1 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:44:23) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 29ms (View: 1 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:44:24) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 50ms (View: 1 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:44:25) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 29ms (View: 1 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:44:33) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 30ms (View: 2 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:44:33) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 33ms (View: 1 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:44:33) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 29ms (View: 0 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 00:44:34) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 27ms (View: 1 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 01:51:51) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 3176ms (View: 2 | 400 Bad Request [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 01:53:04) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+
+NoMethodError (undefined method `find_by_id' for Container:Class):
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/belongs_to_proxy.rb:19:in `find_target'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/proxy.rb:118:in `load_target'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/proxy.rb:75:in `reload'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/belongs_to_proxy.rb:13:in `replace'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations.rb:41:in `block in create_association'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/keys.rb:183:in `block in attributes='
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/keys.rb:181:in `each_pair'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/keys.rb:181:in `attributes='
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/keys.rb:211:in `assign'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/accessible.rb:21:in `assign'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/protected.rb:30:in `assign'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/keys.rb:165:in `initialize'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/sci.rb:26:in `initialize'
+  app/controllers/application_controller.rb:449:in `new'
+  app/controllers/application_controller.rb:449:in `do_PUT'
+  app/controllers/application_controller.rb:149:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (46.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 01:54:43) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+
+NoMethodError (undefined method `find_by_id' for Container:Class):
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/belongs_to_proxy.rb:19:in `find_target'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/proxy.rb:118:in `load_target'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/proxy.rb:75:in `reload'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/belongs_to_proxy.rb:13:in `replace'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations.rb:41:in `block in create_association'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/keys.rb:183:in `block in attributes='
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/keys.rb:181:in `each_pair'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/keys.rb:181:in `attributes='
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/keys.rb:211:in `assign'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/accessible.rb:21:in `assign'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/protected.rb:30:in `assign'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/keys.rb:165:in `initialize'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/sci.rb:26:in `initialize'
+  app/controllers/application_controller.rb:449:in `new'
+  app/controllers/application_controller.rb:449:in `do_PUT'
+  app/controllers/application_controller.rb:149:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (14.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 01:57:05) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+
+NoMethodError (undefined method `find_by_id' for Container:Class):
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/belongs_to_proxy.rb:19:in `find_target'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/proxy.rb:118:in `load_target'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/proxy.rb:75:in `reload'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/belongs_to_proxy.rb:13:in `replace'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations.rb:41:in `block in create_association'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/keys.rb:183:in `block in attributes='
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/keys.rb:181:in `each_pair'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/keys.rb:181:in `attributes='
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/keys.rb:211:in `assign'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/accessible.rb:21:in `assign'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/protected.rb:30:in `assign'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/keys.rb:165:in `initialize'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/sci.rb:26:in `initialize'
+  app/controllers/application_controller.rb:449:in `new'
+  app/controllers/application_controller.rb:449:in `do_PUT'
+  app/controllers/application_controller.rb:149:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (21.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 01:58:13) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+
+NoMethodError (undefined method `create' for Container:Class):
+  app/controllers/application_controller.rb:449:in `do_PUT'
+  app/controllers/application_controller.rb:149:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (24.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 01:59:53) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+
+NoMethodError (undefined method `find_by_id' for Container:Class):
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/belongs_to_proxy.rb:19:in `find_target'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/proxy.rb:118:in `load_target'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/proxy.rb:75:in `reload'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/belongs_to_proxy.rb:13:in `replace'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations.rb:41:in `block in create_association'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/keys.rb:183:in `block in attributes='
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/keys.rb:181:in `each_pair'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/keys.rb:181:in `attributes='
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/keys.rb:211:in `assign'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/accessible.rb:21:in `assign'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/protected.rb:30:in `assign'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/keys.rb:165:in `initialize'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/sci.rb:26:in `initialize'
+  app/controllers/application_controller.rb:449:in `new'
+  app/controllers/application_controller.rb:449:in `do_PUT'
+  app/controllers/application_controller.rb:149:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (15.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 02:02:40) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+
+NoMethodError (undefined method `find_by_id' for Container:Class):
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/belongs_to_proxy.rb:19:in `find_target'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/proxy.rb:118:in `load_target'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/proxy.rb:75:in `reload'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/belongs_to_proxy.rb:13:in `replace'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations.rb:41:in `block in create_association'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/keys.rb:183:in `block in attributes='
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/keys.rb:181:in `each_pair'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/keys.rb:181:in `attributes='
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/keys.rb:211:in `assign'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/accessible.rb:21:in `assign'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/protected.rb:30:in `assign'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/keys.rb:165:in `initialize'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/sci.rb:26:in `initialize'
+  app/controllers/application_controller.rb:449:in `new'
+  app/controllers/application_controller.rb:449:in `do_PUT'
+  app/controllers/application_controller.rb:149:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (83.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 02:02:48) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.<<):
+  app/controllers/application_controller.rb:465:in `do_PUT'
+  app/controllers/application_controller.rb:149:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (17.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 02:08:12) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+
+NoMethodError (undefined method `find_by_id' for Container:Class):
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/belongs_to_proxy.rb:19:in `find_target'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/proxy.rb:118:in `load_target'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/proxy.rb:75:in `reload'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/belongs_to_proxy.rb:13:in `replace'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations.rb:41:in `block in create_association'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/keys.rb:183:in `block in attributes='
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/keys.rb:181:in `each_pair'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/keys.rb:181:in `attributes='
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/keys.rb:211:in `assign'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/accessible.rb:21:in `assign'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/protected.rb:30:in `assign'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/keys.rb:165:in `initialize'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/sci.rb:26:in `initialize'
+  app/controllers/application_controller.rb:449:in `new'
+  app/controllers/application_controller.rb:449:in `do_PUT'
+  app/controllers/application_controller.rb:149:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (68.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 02:10:31) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+
+NoMethodError (undefined method `first' for #<Item:0x53514a8>):
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/dirty.rb:26:in `method_missing'
+  app/controllers/application_controller.rb:456:in `do_PUT'
+  app/controllers/application_controller.rb:149:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (14.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 02:10:47) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+
+NoMethodError (undefined method `find_by_id' for Container:Class):
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/belongs_to_proxy.rb:19:in `find_target'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/proxy.rb:118:in `load_target'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/proxy.rb:75:in `reload'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/belongs_to_proxy.rb:13:in `replace'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations.rb:41:in `block in create_association'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/keys.rb:183:in `block in attributes='
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/keys.rb:181:in `each_pair'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/keys.rb:181:in `attributes='
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/keys.rb:211:in `assign'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/accessible.rb:21:in `assign'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/protected.rb:30:in `assign'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/keys.rb:165:in `initialize'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/sci.rb:26:in `initialize'
+  app/controllers/application_controller.rb:449:in `new'
+  app/controllers/application_controller.rb:449:in `do_PUT'
+  app/controllers/application_controller.rb:149:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (15.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 02:12:13) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+
+NoMethodError (undefined method `find_by_id' for Container:Class):
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/belongs_to_proxy.rb:19:in `find_target'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/proxy.rb:118:in `load_target'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/proxy.rb:75:in `reload'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/belongs_to_proxy.rb:13:in `replace'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations.rb:41:in `block in create_association'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/proxy.rb:109:in `method_missing'
+  app/controllers/application_controller.rb:457:in `do_PUT'
+  app/controllers/application_controller.rb:149:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (22.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 02:17:07) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+
+NoMethodError (undefined method `find_by_id' for Container:Class):
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/belongs_to_proxy.rb:19:in `find_target'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/proxy.rb:118:in `load_target'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/proxy.rb:75:in `reload'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/belongs_to_proxy.rb:13:in `replace'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations.rb:41:in `block in create_association'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/proxy.rb:109:in `method_missing'
+  app/controllers/application_controller.rb:457:in `do_PUT'
+  app/controllers/application_controller.rb:149:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (12.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 02:28:22) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+
+NoMethodError (undefined method `new?' for "Container":String):
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/belongs_to_proxy.rb:8:in `replace'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations.rb:41:in `block in create_association'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/proxy.rb:109:in `method_missing'
+  app/controllers/application_controller.rb:457:in `do_PUT'
+  app/controllers/application_controller.rb:149:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (15.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 02:29:55) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+
+NoMethodError (undefined method `new?' for Container:Class):
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/belongs_to_proxy.rb:8:in `replace'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations.rb:41:in `block in create_association'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/proxy.rb:109:in `method_missing'
+  app/controllers/application_controller.rb:457:in `do_PUT'
+  app/controllers/application_controller.rb:149:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (13.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 02:30:04) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+
+NoMethodError (undefined method `find_by_id' for Container:Class):
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/belongs_to_proxy.rb:19:in `find_target'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/proxy.rb:118:in `load_target'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/proxy.rb:75:in `reload'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/belongs_to_proxy.rb:13:in `replace'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations.rb:41:in `block in create_association'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/proxy.rb:109:in `method_missing'
+  app/controllers/application_controller.rb:457:in `do_PUT'
+  app/controllers/application_controller.rb:149:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (49.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 02:31:48) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+
+NoMethodError (undefined method `find_by_id' for Container:Class):
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/belongs_to_proxy.rb:19:in `find_target'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/proxy.rb:118:in `load_target'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/proxy.rb:75:in `reload'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/belongs_to_proxy.rb:13:in `replace'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations.rb:41:in `block in create_association'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/proxy.rb:109:in `method_missing'
+  app/controllers/application_controller.rb:458:in `do_PUT'
+  app/controllers/application_controller.rb:149:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (12.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 02:32:10) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+
+NoMethodError (undefined method `find_by_id' for Container:Class):
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/belongs_to_proxy.rb:19:in `find_target'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/proxy.rb:118:in `load_target'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/proxy.rb:75:in `reload'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/belongs_to_proxy.rb:13:in `replace'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations.rb:41:in `block in create_association'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/proxy.rb:109:in `method_missing'
+  app/controllers/application_controller.rb:458:in `do_PUT'
+  app/controllers/application_controller.rb:149:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (52.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 02:37:14) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+
+NameError (undefined local variable or method `parentPathChildrenLength' for #<ApplicationController:0x514d808>):
+  app/controllers/application_controller.rb:467:in `do_PUT'
+  app/controllers/application_controller.rb:149:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (56.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 02:37:29) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 68ms (View: 2 | 201 Created [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 02:43:23) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 3470ms (View: 9 | 201 Created [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 02:44:44) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 47ms (View: 0 | 201 Created [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 02:53:00) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 62ms (View: 0 | 201 Created [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 02:55:50) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+
+NoMethodError (undefined method `create' for Container:Class):
+  app/controllers/application_controller.rb:449:in `do_PUT'
+  app/controllers/application_controller.rb:149:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (15.6ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 02:56:12) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 47ms (View: 0 | 201 Created [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 02:58:23) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 2605ms (View: 0 | 201 Created [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 03:00:18) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 62ms (View: 0 | 201 Created [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 03:03:04) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 2605ms (View: 0 | 201 Created [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 03:05:13) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 78ms (View: 0 | 201 Created [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 03:09:49) [PUT]
+  Parameters: {"steps"=>["1"]}
+Completed in 2059ms (View: 0 | 201 Created [http://localhost/1]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 03:12:15) [PUT]
+  Parameters: {"steps"=>["1"]}
+
+NoMethodError (undefined method `first' for #<Item:0x43cfd28>):
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/dirty.rb:26:in `method_missing'
+  app/controllers/application_controller.rb:402:in `do_PUT'
+  app/controllers/application_controller.rb:149:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (15.6ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 03:13:11) [PUT]
+  Parameters: {"steps"=>["1"]}
+Completed in 62ms (View: 0 | 400 Bad Request [http://localhost/1]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 03:13:36) [PUT]
+  Parameters: {"steps"=>["1"]}
+Completed in 62ms (View: 0 | 201 Created [http://localhost/1]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 03:16:11) [PUT]
+  Parameters: {"steps"=>["1"]}
+Completed in 78ms (View: 0 | 201 Created [http://localhost/1]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 03:18:08) [PUT]
+  Parameters: {"steps"=>["1"]}
+
+NoMethodError (undefined method `objectID' for #<Item:0x45202c8>):
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/dirty.rb:26:in `method_missing'
+  app/controllers/application_controller.rb:472:in `do_PUT'
+  app/controllers/application_controller.rb:149:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (15.6ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 03:18:33) [PUT]
+  Parameters: {"steps"=>["1"]}
+Completed in 62ms (View: 0 | 201 Created [http://localhost/1]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 03:20:00) [PUT]
+  Parameters: {"steps"=>["1"]}
+Completed in 62ms (View: 0 | 201 Created [http://localhost/1]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 03:30:24) [PUT]
+  Parameters: {"steps"=>["1"]}
+
+NoMethodError (undefined method `subcontainers_ids' for #<Container:0x4eb01a8>):
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations/proxy.rb:109:in `method_missing'
+  app/controllers/application_controller.rb:467:in `do_PUT'
+  app/controllers/application_controller.rb:149:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (21.0ms)
+Rendered rescues/_request_and_response (5.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 03:31:26) [PUT]
+  Parameters: {"steps"=>["1"]}
+
+BSON::InvalidDocument (Cannot serialize an object of class Item into BSON.):
+  bson (1.6.2) lib/bson/bson_c.rb:24:in `serialize'
+  bson (1.6.2) lib/bson/bson_c.rb:24:in `serialize'
+  mongo (1.6.2) lib/mongo/collection.rb:437:in `update'
+  mongo (1.6.2) lib/mongo/collection.rb:310:in `save'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/querying.rb:171:in `save_to_collection'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/associations.rb:88:in `save_to_collection'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/safe.rb:23:in `save_to_collection'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/querying.rb:166:in `update'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/callbacks.rb:113:in `update'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/querying.rb:157:in `create_or_update'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/callbacks.rb:98:in `create_or_update'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/querying.rb:138:in `save'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/dirty.rb:52:in `save'
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/identity_map.rb:115:in `save'
+  app/controllers/application_controller.rb:470:in `do_PUT'
+  app/controllers/application_controller.rb:149:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (19.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 03:32:21) [PUT]
+  Parameters: {"steps"=>["1"]}
+Completed in 53ms (View: 2 | 201 Created [http://localhost/1]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 03:35:49) [PUT]
+  Parameters: {"steps"=>["1"]}
+Completed in 3246ms (View: 2 | 201 Created [http://localhost/1]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 03:36:13) [PUT]
+  Parameters: {"steps"=>["1"]}
+Completed in 34ms (View: 1 | 200 OK [http://localhost/1]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 03:36:31) [PUT]
+  Parameters: {"metadata"=>nil, "steps"=>["1"]}
+Completed in 72ms (View: 7 | 200 OK [http://localhost/1?metadata]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 03:36:42) [PUT]
+  Parameters: {"metadata"=>nil, "steps"=>["1"]}
+Completed in 68ms (View: 2 | 200 OK [http://localhost/1?metadata]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 03:37:20) [PUT]
+  Parameters: {"steps"=>["1"]}
+
+NoMethodError (undefined method `key' for :container:Symbol):
+  app/controllers/application_controller.rb:339:in `updateDataValue'
+  app/controllers/application_controller.rb:460:in `do_PUT'
+  app/controllers/application_controller.rb:149:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (51.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 03:38:54) [PUT]
+  Parameters: {"steps"=>["1"]}
+
+NoMethodError (undefined method `key' for :container:Symbol):
+  app/controllers/application_controller.rb:339:in `updateDataValue'
+  app/controllers/application_controller.rb:460:in `do_PUT'
+  app/controllers/application_controller.rb:149:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (11.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 03:39:57) [PUT]
+  Parameters: {"steps"=>["1"]}
+
+NoMethodError (undefined method `key' for :container:Symbol):
+  app/controllers/application_controller.rb:340:in `updateDataValue'
+  app/controllers/application_controller.rb:461:in `do_PUT'
+  app/controllers/application_controller.rb:149:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (11.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 03:41:19) [PUT]
+  Parameters: {"steps"=>["1"]}
+
+NoMethodError (undefined method `key' for nil:NilClass):
+  app/controllers/application_controller.rb:340:in `updateDataValue'
+  app/controllers/application_controller.rb:461:in `do_PUT'
+  app/controllers/application_controller.rb:149:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (12.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 03:41:59) [PUT]
+  Parameters: {"steps"=>["1"]}
+
+NoMethodError (undefined method `key' for :container:Symbol):
+  app/controllers/application_controller.rb:340:in `updateDataValue'
+  app/controllers/application_controller.rb:461:in `do_PUT'
+  app/controllers/application_controller.rb:149:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (10.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 03:44:14) [PUT]
+  Parameters: {"steps"=>["1"]}
+
+NoMethodError (undefined method `key' for #<Container:0x5271d98>):
+  app/controllers/application_controller.rb:340:in `eval'
+  (eval):1:in `updateDataValue'
+  app/controllers/application_controller.rb:340:in `eval'
+  app/controllers/application_controller.rb:340:in `updateDataValue'
+  app/controllers/application_controller.rb:461:in `do_PUT'
+  app/controllers/application_controller.rb:149:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (43.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 03:47:08) [PUT]
+  Parameters: {"steps"=>["1"]}
+Completed in 62ms (View: 5 | 200 OK [http://localhost/1]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 03:47:19) [PUT]
+  Parameters: {"steps"=>["1"]}
+Completed in 55ms (View: 2 | 200 OK [http://localhost/1]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 03:47:25) [PUT]
+  Parameters: {"steps"=>["1"]}
+Completed in 57ms (View: 1 | 200 OK [http://localhost/1]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 04:00:39) [GET]
+  Parameters: {"steps"=>["1"]}
+Completed in 16ms (View: 0 | 200 OK [http://localhost/1]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 04:04:46) [GET]
+  Parameters: {"metadata"=>nil, "steps"=>["1"]}
+
+NoMethodError (undefined method `tu' for #<Item:0x5245980>):
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/dirty.rb:26:in `method_missing'
+  app/controllers/application_controller.rb:527:in `block in do_GET'
+  app/controllers/application_controller.rb:526:in `each'
+  app/controllers/application_controller.rb:526:in `do_GET'
+  app/controllers/application_controller.rb:152:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (15.6ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 04:10:36) [GET]
+  Parameters: {"metadata"=>nil, "steps"=>["1"]}
+
+NoMethodError (undefined method `data' for #<Item:0x523ba08>):
+  vendor/gems/mongo_mapper-0.8.6/lib/mongo_mapper/plugins/dirty.rb:26:in `method_missing'
+  app/controllers/application_controller.rb:529:in `block in do_GET'
+  app/controllers/application_controller.rb:525:in `each'
+  app/controllers/application_controller.rb:525:in `do_GET'
+  app/controllers/application_controller.rb:152:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (15.6ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 04:16:10) [GET]
+  Parameters: {"metadata"=>nil, "steps"=>["1"]}
+Completed in 78ms (View: 0 | 200 OK [http://localhost/1?metadata]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 04:16:17) [GET]
+  Parameters: {"metadata:cd"=>nil, "steps"=>["1"]}
+Completed in 47ms (View: 0 | 200 OK [http://localhost/1?metadata:cd]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 04:16:21) [GET]
+  Parameters: {"metadata:cdf"=>nil, "steps"=>["1"]}
+Completed in 47ms (View: 0 | 200 OK [http://localhost/1?metadata:cdf]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 04:16:29) [GET]
+  Parameters: {"children"=>nil, "steps"=>["1"]}
+Completed in 62ms (View: 0 | 200 OK [http://localhost/1?children]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 04:16:34) [GET]
+  Parameters: {"children"=>nil, "steps"=>[]}
+Completed in 31ms (View: 0 | 200 OK [http://localhost/?children]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 04:16:50) [GET]
+  Parameters: {"children:0-1"=>nil, "steps"=>[]}
+Completed in 47ms (View: 0 | 200 OK [http://localhost/?children:0-1]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 04:16:56) [GET]
+  Parameters: {"children:0-100"=>nil, "steps"=>[]}
+Completed in 47ms (View: 0 | 200 OK [http://localhost/?children:0-100]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 04:18:46) [GET]
+  Parameters: {"children:0-100"=>nil, "steps"=>[]}
+Completed in 47ms (View: 0 | 200 OK [http://localhost/?children:0-100]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 04:18:54) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 47ms (View: 0 | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 04:19:12) [PUT]
+  Parameters: {"steps"=>["1"]}
+Completed in 78ms (View: 0 | 201 Created [http://localhost/1]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 04:19:39) [GET]
+  Parameters: {"steps"=>["1"]}
+Completed in 62ms (View: 0 | 200 OK [http://localhost/1]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 04:20:00) [GET]
+  Parameters: {"steps"=>["1"]}
+Completed in 47ms (View: 0 | 200 OK [http://localhost/1]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 04:20:10) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 47ms (View: 0 | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 04:20:22) [GET]
+  Parameters: {"steps"=>["1"]}
+Completed in 31ms (View: 0 | 200 OK [http://localhost/1]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 04:20:26) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 47ms (View: 0 | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 04:37:27) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 36ms (View: 1 | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 04:37:30) [GET]
+  Parameters: {"steps"=>["1"]}
+Completed in 38ms (View: 2 | 200 OK [http://localhost/1]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 04:37:39) [DELETE]
+  Parameters: {"steps"=>["1"]}
+Completed in 38ms (View: 1 | 406 Not Acceptable [http://localhost/1]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 04:37:54) [DELETE]
+  Parameters: {"steps"=>["1"]}
+Completed in 49ms (View: 1 | 409 Conflict [http://localhost/1]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 04:39:15) [DELETE]
+  Parameters: {"steps"=>["1"]}
+Completed in 16ms (View: 0 | 409 Conflict [http://localhost/1]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 04:42:03) [PUT]
+  Parameters: {"steps"=>["2"]}
+Completed in 78ms (View: 0 | 201 Created [http://localhost/2]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 04:52:40) [DELETE]
+  Parameters: {"steps"=>["1"]}
+Completed in 78ms (View: 16 | 200 OK [http://localhost/1]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 04:53:48) [GET]
+  Parameters: {"steps"=>["1"]}
+Completed in 62ms (View: 0 | 404 Not Found [http://localhost/1]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 04:54:04) [PUT]
+  Parameters: {"steps"=>["2", "3"]}
+Completed in 94ms (View: 0 | 201 Created [http://localhost/2/3]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 17:55:52) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 3149ms (View: 3 | 201 Created [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 17:57:21) [PUT]
+  Parameters: {"steps"=>["MyContainer", "note.txt"]}
+Completed in 86ms (View: 2 | 201 Created [http://localhost/MyContainer/note.txt]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 17:57:35) [PUT]
+  Parameters: {"steps"=>["MyContainer", "note.txt"]}
+Completed in 82ms (View: 1 | 200 OK [http://localhost/MyContainer/note.txt]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 17:57:54) [PUT]
+  Parameters: {"value:0-4"=>nil, "steps"=>["MyContainer", "note.txt"]}
+Completed in 52ms (View: 1 | 200 OK [http://localhost/MyContainer/note.txt?value:0-4]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 17:58:06) [PUT]
+  Parameters: {"value:0-100"=>nil, "steps"=>["MyContainer", "note.txt"]}
+Completed in 76ms (View: 1 | 200 OK [http://localhost/MyContainer/note.txt?value:0-100]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 17:58:21) [PUT]
+  Parameters: {"value"=>nil, "steps"=>["MyContainer", "note.txt"]}
+Completed in 75ms (View: 2 | 200 OK [http://localhost/MyContainer/note.txt?value]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 17:58:38) [PUT]
+  Parameters: {"steps"=>["MyContainer", "note.txt"]}
+Completed in 125ms (View: 6 | 200 OK [http://localhost/MyContainer/note.txt]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 18:06:30) [DELETE]
+  Parameters: {"steps"=>["MyContainer", "note.txt"]}
+Completed in 51ms (View: 1 | 200 OK [http://localhost/MyContainer/note.txt]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 18:17:12) [PUT]
+  Parameters: {"steps"=>["note.txt"]}
+Completed in 20ms (View: 15 | 405 Method Not Allowed [http://localhost/note.txt]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 18:17:22) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 66ms (View: 3 | 201 Created [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 18:17:42) [PUT]
+  Parameters: {"steps"=>["MyContainer", "note.txt"]}
+Completed in 33ms (View: 5 | 201 Created [http://localhost/MyContainer/note.txt]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 18:18:52) [DELETE]
+  Parameters: {"steps"=>["MyContainer", "note.txt"]}
+Completed in 81ms (View: 1 | 200 OK [http://localhost/MyContainer/note.txt]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 18:19:37) [DELETE]
+  Parameters: {"steps"=>["MyContainer", "note.txt"]}
+Completed in 49ms (View: 0 | 200 OK [http://localhost/MyContainer/note.txt]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 18:20:17) [DELETE]
+  Parameters: {"steps"=>["MyContainer", "note.txt"]}
+Completed in 55ms (View: 1 | 200 OK [http://localhost/MyContainer/note.txt]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 18:20:55) [DELETE]
+  Parameters: {"steps"=>["MyContainer", "note.txt"]}
+Completed in 33ms (View: 1 | 409 Conflict [http://localhost/MyContainer/note.txt]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 18:21:16) [DELETE]
+  Parameters: {"steps"=>["MyContainer", "note.txt"]}
+Completed in 53ms (View: 1 | 409 Conflict [http://localhost/MyContainer/note.txt]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 18:22:04) [DELETE]
+  Parameters: {"steps"=>["MyContainer", "note.txt"]}
+Completed in 51ms (View: 1 | 409 Conflict [http://localhost/MyContainer/note.txt]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 18:23:01) [DELETE]
+  Parameters: {"steps"=>["MyContainer", "note.txt"]}
+Completed in 50ms (View: 1 | 409 Conflict [http://localhost/MyContainer/note.txt]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 18:24:08) [DELETE]
+  Parameters: {"steps"=>["MyContainer", "note.txt"]}
+
+TypeError (can't convert nil into String):
+  app/controllers/application_controller.rb:623:in `+'
+  app/controllers/application_controller.rb:623:in `do_DELETE'
+  app/controllers/application_controller.rb:155:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (12.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 18:24:28) [DELETE]
+  Parameters: {"steps"=>["MyContainer", "note.txt"]}
+Completed in 87ms (View: 5 | 200 OK [http://localhost/MyContainer/note.txt]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 18:28:30) [DELETE]
+  Parameters: {"steps"=>["MyContainer", "note.txt"]}
+Completed in 63ms (View: 2 | 200 OK [http://localhost/MyContainer/note.txt]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 18:30:21) [DELETE]
+  Parameters: {"steps"=>["MyContainer", "note.txt"]}
+Completed in 50ms (View: 0 | 200 OK [http://localhost/MyContainer/note.txt]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 18:49:11) [GET]
+  Parameters: {"steps"=>["MyContainer", "note.txt"]}
+Completed in 2ms (View: 1 | 400 Bad Request [http://localhost/MyContainer/note.txt]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 18:49:52) [GET]
+  Parameters: {"steps"=>["MyContainer", "note.txt"]}
+Completed in 2ms (View: 1 | 400 Bad Request [http://localhost/MyContainer/note.txt]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 18:50:49) [GET]
+  Parameters: {"steps"=>["MyContainer", "note.txt"]}
+Completed in 3ms (View: 1 | 400 Bad Request [http://localhost/MyContainer/note.txt]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 18:52:24) [GET]
+  Parameters: {"steps"=>["MyContainer", "note.txt"]}
+Completed in 2ms (View: 1 | 400 Bad Request [http://localhost/MyContainer/note.txt]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 18:59:21) [GET]
+  Parameters: {"steps"=>["MyContainer", "note.txt"]}
+Completed in 37ms (View: 1 | 404 Not Found [http://localhost/MyContainer/note.txt]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 18:59:28) [GET]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 43ms (View: 4 | 406 Not Acceptable [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 18:59:52) [GET]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 39ms (View: 1 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 19:01:03) [GET]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 3ms (View: 1 | 405 Method Not Allowed [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-05 19:03:09) [GET]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 2ms (View: 1 | 400 Bad Request [http://localhost/MyContainer]

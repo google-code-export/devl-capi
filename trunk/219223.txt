@@ -1,0 +1,108 @@
+# mongo_template.rb
+# fork of Ben Scofield's Rails MongoMapper Template (http://gist.github.com/181842)
+#
+# To use:
+#  rails project_name -m http://gist.github.com/gists/219223.txt
+
+# remove unneeded defaults
+run "rm public/index.html"
+run "rm public/images/rails.png"
+run "rm public/javascripts/controls.js"
+run "rm public/javascripts/dragdrop.js"
+run "rm public/javascripts/effects.js"
+run "rm public/javascripts/prototype.js"
+
+# add basic layout to start
+file 'app/views/layouts/application.html.erb', <<HTML
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <title>Application!</title>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js" type="text/javascript"></script>
+  <%= stylesheet_link_tag 'global' %>
+</head>
+<body>
+  <%= yield %>
+</body>
+</html>
+HTML
+
+# MongoDB FTW!
+db_name = ask('What should I call the database? ')
+
+initializer 'database.rb', <<-CODE
+MongoMapper.database = "#{db_name}-\#{Rails.env}"
+
+if defined?(PhusionPassenger)
+   PhusionPassenger.on_event(:starting_worker_process) do |forked|
+     MongoMapper.connection.connect_to_master if forked
+   end
+end
+CODE
+
+file 'config/database.yml', <<-CODE
+# Using MongoDB
+CODE
+
+# Don't need ActiveRecord
+environment 'config.frameworks -= [:active_record]'
+
+# MongoMapper
+gem 'mongo_mapper'
+
+# Testing Helper
+file 'test/test_helper.rb', <<-CODE
+ENV['RAILS_ENV'] = 'test'
+require File.expand_path(File.dirname(__FILE__) + '/../config/environment')
+require 'test_help'
+require 'shoulda'
+require 'mocha'
+require 'factory_girl'
+
+
+class ActiveSupport::TestCase
+  # Drop all collections after each test case.
+  def teardown
+    MongoMapper.database.collections.each do |coll|
+      coll.remove  
+    end
+  end
+
+  # Make sure that each test case has a teardown
+  # method to clear the db after each test.
+  def inherited(base)
+    base.define_method teardown do 
+      super
+    end
+  end
+end
+CODE
+
+# Testing tools
+gem 'redgreen'
+gem 'shoulda'
+gem 'factory_girl'
+gem 'mocha'
+
+# Gem management
+rake 'gems:install'
+rake 'gems:unpack'
+rake 'rails:freeze:gems'
+
+# source control
+file '.gitignore', <<-FILES
+.DS_Store
+**/.DS_Store
+log/*
+tmp/*
+tmp/**/*
+config/database.yml
+coverage/*
+coverage/**/*
+FILES
+
+git :init
+git :add => '.'
+git :commit => '-a -m "Initial commit"'
