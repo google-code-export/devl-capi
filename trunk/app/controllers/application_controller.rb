@@ -436,21 +436,12 @@ class ApplicationController < ActionController::Base
             :metadata        => ( md = updateDataValue(createItem, :metadata, result, item, :container) ; md.nil? ? Hash.new : md )
           )
 
-          # parentContainer = findParentItem.container
-          # parentContainer.children << (eval "item.#{result[:itemType]}.objectName") + (result[:itemType] == :container ? '/' : "")
-          # parentChildrenLength = parentContainer.children.length
-          # parentContainer.childrenrange = (parentChildrenLength == 0 ? nil : "0-#{parentChildrenLength - 1}")
-          # eval "parentContainer.sub#{result[:itemType]}s_item_ids" << item.id
-          # findParentItem.save
-
         elsif createItem == false
           item.container.metadata = ( md = updateDataValue(createItem, :metadata, result, item, :container) ; md.nil? ? Hash.new : md )
 
         end
 
         item.save
-
-        # render :json => item.container,:content_type => "application/vnd.org.snia.cdmi.#{result[:itemType]}+json",:status => (createItem == true ? :created : :ok)
         
       when :dataobject
         if createItem == true
@@ -471,7 +462,6 @@ class ApplicationController < ActionController::Base
         elsif createItem == false
           item.dataobject.metadata = ( md = updateDataValue(createItem, :metadata, result, item, :dataobject) ; md.nil? ? Hash.new : md )
           item.dataobject.mimetype = ( md = updateDataValue(createItem, :mimetype, result, item, :dataobject) ; md.nil? ? "text/plain" : md )
-          # item.dataobject.value    = ( md = updateDataValue(createItem, :value, result, item, :dataobject) ; md.nil? ? String.new : md )
 
           begin
             item.dataobject.value[result[:queryParameters][:value][:begin]..result[:queryParameters][:value][:end]] = ( md = updateDataValue(createItem, :value, result, item, :dataobject) ; md.nil? ? String.new : md )
@@ -592,26 +582,9 @@ class ApplicationController < ActionController::Base
           return
         end
 
-        # findParentItem   = Item.first(:path => result[:parentPath])
-        # parentContainer  = findParentItem.container
-        # currentDirectory = item.container.objectName + '/'
-        # parentContainer.children.include?(currentDirectory) ? parentContainer.children.delete(currentDirectory) : (render :json => {'FATAL ERROR!!!!!!!!!!!!!!!' => "parentPath does not have this container"},:content_type => "application/json",:status => :conflict ; return)
-        # parentChildrenLength          = parentContainer.children.length
-        # parentContainer.childrenrange = (parentChildrenLength == 0 ? nil : "0-#{parentChildrenLength - 1}")
-        # parentContainer.subcontainers_item_ids.include?(item.id) ? parentContainer.subcontainers_item_ids.delete(item.id) : (render :json => {'FATAL ERROR!!!!!!!!!!!!!!!' => "parentPath does not have this container 222222222"},:content_type => "application/json",:status => :conflict ; return)
-        # findParentItem.save
-
         item.destroy
 
       when :dataobject
-        # findParentItem   = Item.first(:path => result[:parentPath])
-        # parentContainer  = findParentItem.container
-        # currentDirectory = item.dataobject.objectName
-        # parentContainer.children.include?(currentDirectory) ? parentContainer.children.delete(currentDirectory) : (render :json => {'FATAL ERROR!!!!!!!!!!!!!!!' => "parentPath does not have this dataobject"},:content_type => "application/json",:status => :conflict ; return)
-        # parentChildrenLength          = parentContainer.children.length
-        # parentContainer.childrenrange = (parentChildrenLength == 0 ? nil : "0-#{parentChildrenLength - 1}")
-        # parentContainer.subdataobjects_item_ids.include?(item.id) ? parentContainer.subdataobjects_item_ids.delete(item.id) : (render :json => {'FATAL ERROR!!!!!!!!!!!!!!!' => "parentPath does not have this dataobject 222222222"},:content_type => "application/json",:status => :conflict ; return)
-        # findParentItem.save
 
         item.destroy
 
@@ -629,7 +602,6 @@ class ApplicationController < ActionController::Base
     parentContainer.children.include?(currentDirectory) ? parentContainer.children.delete(currentDirectory) : (render :json => {'FATAL ERROR!!!!!!!!!!!!!!!' => "parentPath does not have this dataobject"},:content_type => "application/json",:status => :conflict ; return)
     parentChildrenLength          = parentContainer.children.length
     parentContainer.childrenrange = (parentChildrenLength == 0 ? nil : "0-#{parentChildrenLength - 1}")
-    # parentContainer.subdataobjects_item_ids.include?(item.id) ? parentContainer.subdataobjects_item_ids.delete(item.id) : (render :json => {'FATAL ERROR!!!!!!!!!!!!!!!' => "parentPath does not have this dataobject 222222222"},:content_type => "application/json",:status => :conflict ; return)
     (eval "parentContainer.sub#{result[:itemType]}s_item_ids.include?(item.id)") ? (eval "parentContainer.sub#{result[:itemType]}s_item_ids.delete(item.id)") : (render :json => {'FATAL ERROR!!!!!!!!!!!!!!!' => "parentPath does not have this dataobject 222222222"},:content_type => "application/json",:status => :conflict ; return)
       
     findParentItem.save
