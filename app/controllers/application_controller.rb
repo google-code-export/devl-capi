@@ -128,6 +128,15 @@ class ApplicationController < ActionController::Base
         end
         body_json     = JSON.parse(result[:rawPost], :symbolize_names => true)
         result[:body] = body_json
+
+        i = 0
+        result[:body].has_key?(:copy) ? (i += 1 ; result[:copy] = true) : nil
+        result[:body].has_key?(:move) ? (i += 1 ; result[:move] = true) : nil
+        result[:body].has_key?(:reference) ?(i += 1 ; result[:reference] = true) : nil
+        if i > 1
+          render :json => {'ERROR' => "If present, only one of (copy|move|reference) shall be presented"},:content_type => 'application/json',:status => :bad_request
+          return
+        end
       end
 
       #Find request item's type
@@ -148,7 +157,10 @@ class ApplicationController < ActionController::Base
       end
 
       unless [:object, :container, :dataobject, :queue, :domain].include?(result[:itemType])
-        render :json => {'ERROR' => "not support this itemType #{result[:itemType]}"}, :content_type => 'application/json', :status => :bad_request
+        render :json => {
+          'ERROR' => "not support this itemType #{result[:itemType]}",
+          'result' => result
+        }, :content_type => 'application/json', :status => :bad_request
         return
       end
 
@@ -422,7 +434,7 @@ class ApplicationController < ActionController::Base
           render :json => {'ERROR' => "The operation conflicts because the container already exists and the X-CDMI-NoClobber header element was set to \"true\"."}, :content_type => 'application/json', :status => :not_modified
           return
         end
-        item       = ( ( result[:acceptType].include?(result[:itemType]) && result[:itemType] == findPath.itemType) ? findPath : nil)
+        item       = ( ( result[:acceptType].include?(result[:itemType]) && ( findPath.itemType != :reference ? result[:itemType] == findPath.itemType : true) ) ? findPath : nil )
         createItem = false  # do a update
       else
         return
@@ -445,77 +457,95 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    case result[:itemType]
-      when :container
+    if result[:reference] == true && createItem == true
+      item.path      = result[:path]
+      item.itemType  = :reference
+      item.reference = Reference.new(
+        :objectName => result[:name],
+        :objectURI  => result[:path],
+        :objectID   => item.id,
+        :parentURI  => result[:parentPath],
+        :referPath  => result[:body][:reference]
+      )
+      item.save
+    elsif item.itemType == :reference && createItem == false
+      headers['Location'] = item.reference.referPath
+      render :json => {},:content_type => "application/vnd.org.snia.cdmi.#{item.itemType}+json",:status => :ok
 
-        if createItem == true
-          item.path      = result[:path]
-          item.itemType  = :container
-          item.container = Container.new(
-            :objectName      => result[:name],
-            :objectURI       => result[:path],
-            :objectID        => item.id,
-            :parentURI       => result[:parentPath],
-            :capabilitiesURI => "/cdmi_capabilities/#{item.itemType}",
-            :metadata        => ( md = updateDataValue(createItem, :metadata, result, item, :container) ; md.nil? ? Hash.new : md )
-          )
+      return
+    else
+      case result[:itemType]
+        when :container
 
-        elsif createItem == false
-          item.container.metadata = ( md = updateDataValue(createItem, :metadata, result, item, :container) ; md.nil? ? Hash.new : md )
+          if createItem == true
+            item.path      = result[:path]
+            item.itemType  = :container
+            item.container = Container.new(
+              :objectName      => result[:name],
+              :objectURI       => result[:path],
+              :objectID        => item.id,
+              :parentURI       => result[:parentPath],
+              :capabilitiesURI => "/cdmi_capabilities/#{item.itemType}",
+              :metadata        => ( md = updateDataValue(createItem, :metadata, result, item, :container) ; md.nil? ? Hash.new : md )
+            )
 
-        end
+          elsif createItem == false
+            item.container.metadata = ( md = updateDataValue(createItem, :metadata, result, item, :container) ; md.nil? ? Hash.new : md )
 
-        item.save
-        
-      when :dataobject
-        if createItem == true
-          item.path      = result[:path]
-          item.itemType  = :dataobject
-          item.dataobject = Dataobject.new(
-            :objectName      => result[:name],
-            :objectURI       => result[:path],
-            :objectID        => item.id,
-            :parentURI       => result[:parentPath],
-            :capabilitiesURI => "/cdmi_capabilities/#{item.itemType}",
-            :metadata        => ( md = updateDataValue(createItem, :metadata, result, item, :dataobject) ; md.nil? ? Hash.new : md ),
-            :mimetype        => ( md = updateDataValue(createItem, :mimetype, result, item, :dataobject) ; md.nil? ? "text/plain" : md ),
-            :value           => ( md = updateDataValue(createItem, :value, result, item, :dataobject) ; md.nil? ? String.new : md )
-          )
-          item.dataobject.valuerange = item.dataobject.value.length == 0 ? nil : "0-#{item.dataobject.value.length - 1}"
-
-        elsif createItem == false
-          item.dataobject.metadata = ( md = updateDataValue(createItem, :metadata, result, item, :dataobject) ; md.nil? ? Hash.new : md )
-          item.dataobject.mimetype = ( md = updateDataValue(createItem, :mimetype, result, item, :dataobject) ; md.nil? ? "text/plain" : md )
-
-          begin
-            item.dataobject.value[result[:queryParameters][:value][:begin]..result[:queryParameters][:value][:end]] = ( md = updateDataValue(createItem, :value, result, item, :dataobject) ; md.nil? ? String.new : md )
-          rescue Exception => e
-            item.dataobject.value  = ( md = updateDataValue(createItem, :value, result, item, :dataobject) ; md.nil? ? String.new : md )
           end
-          item.dataobject.valuerange = item.dataobject.value.length == 0 ? nil : "0-#{item.dataobject.value.length - 1}"
 
-        end
+          item.save
+          
+        when :dataobject
+          if createItem == true
+            item.path      = result[:path]
+            item.itemType  = :dataobject
+            item.dataobject = Dataobject.new(
+              :objectName      => result[:name],
+              :objectURI       => result[:path],
+              :objectID        => item.id,
+              :parentURI       => result[:parentPath],
+              :capabilitiesURI => "/cdmi_capabilities/#{item.itemType}",
+              :metadata        => ( md = updateDataValue(createItem, :metadata, result, item, :dataobject) ; md.nil? ? Hash.new : md ),
+              :mimetype        => ( md = updateDataValue(createItem, :mimetype, result, item, :dataobject) ; md.nil? ? "text/plain" : md ),
+              :value           => ( md = updateDataValue(createItem, :value, result, item, :dataobject) ; md.nil? ? String.new : md )
+            )
+            item.dataobject.valuerange = item.dataobject.value.length == 0 ? nil : "0-#{item.dataobject.value.length - 1}"
 
-        item.save
+          elsif createItem == false
+            item.dataobject.metadata = ( md = updateDataValue(createItem, :metadata, result, item, :dataobject) ; md.nil? ? Hash.new : md )
+            item.dataobject.mimetype = ( md = updateDataValue(createItem, :mimetype, result, item, :dataobject) ; md.nil? ? "text/plain" : md )
 
-      when :domain
-        #to be processd..
+            begin
+              item.dataobject.value[result[:queryParameters][:value][:begin]..result[:queryParameters][:value][:end]] = ( md = updateDataValue(createItem, :value, result, item, :dataobject) ; md.nil? ? String.new : md )
+            rescue Exception => e
+              item.dataobject.value  = ( md = updateDataValue(createItem, :value, result, item, :dataobject) ; md.nil? ? String.new : md )
+            end
+            item.dataobject.valuerange = item.dataobject.value.length == 0 ? nil : "0-#{item.dataobject.value.length - 1}"
 
-      when :queue
-        #to be processd..
+          end
 
+          item.save
+
+        when :domain
+          #to be processd..
+
+        when :queue
+          #to be processd..
+
+      end
     end
 
     if createItem == true
       parentContainer = findParentItem.container
-      parentContainer.children << (eval "item.#{result[:itemType]}.objectName") + (result[:itemType] == :container ? '/' : "")
+      parentContainer.children << (eval "item.#{item.itemType}.objectName") + (item.itemType == :container ? '/' : "")
       parentChildrenLength = parentContainer.children.length
       parentContainer.childrenrange = (parentChildrenLength == 0 ? nil : "0-#{parentChildrenLength - 1}")
-      eval "parentContainer.sub#{result[:itemType]}s_item_ids" << item.id
+      (eval "parentContainer.sub#{item.itemType}s_item_ids") << item.id
       findParentItem.save
     end
 
-    render :json => item.dataobject,:content_type => "application/vnd.org.snia.cdmi.#{result[:itemType]}+json",:status => (createItem == true ? :created : :ok)
+    render :json => (eval "item.#{item.itemType}"),:content_type => "application/vnd.org.snia.cdmi.#{item.itemType}+json",:status => (createItem == true ? :created : :ok)
 
     return
   end
@@ -537,13 +567,21 @@ class ApplicationController < ActionController::Base
         item = findPath
     end
 
-    if result[:acceptType].empty? || !result[:acceptType].include?(item.itemType)
+    if result[:acceptType].empty? || (item.itemType == :reference ? false : !result[:acceptType].include?(item.itemType))
       render :json => {'ERROR' => "the server is unable to provide the object in the accept-type specified in the accept header."},:content_type => 'application/json', :status => :not_acceptable
       return
     end
 
     case result[:itemType]
       when :object
+        if item.itemType == :reference
+          headers['Location'] = item.reference.referPath
+          render :json => {},:content_type => "application/vnd.org.snia.cdmi.#{item.itemType}+json",:status => :ok
+
+          return
+        end
+
+
         if result[:queryParameters].empty?
           render :json => (eval "item.#{item.itemType}"),:content_type =>"application/vnd.org.snia.cdmi.#{item.itemType}+json",:status => :ok
           return
@@ -594,7 +632,7 @@ class ApplicationController < ActionController::Base
         render :json => {'ERROR' => "ITEM DOES NOT EXIT"},:content_type => 'application/json', :status => :not_found
         return
       else
-        item = ( ( result[:acceptType].include?(result[:itemType]) && result[:itemType] == findPath.itemType) ? findPath : nil)
+        item = ( ( result[:acceptType].include?(result[:itemType]) && ( findPath.itemType != :reference ? result[:itemType] == findPath.itemType : true) ) ? findPath : nil)
     end
 
     if item.nil?
@@ -606,6 +644,7 @@ class ApplicationController < ActionController::Base
       },:content_type => 'application/json', :status => :not_acceptable
       return
     end
+
 
     case item.itemType
       when :container
@@ -621,7 +660,6 @@ class ApplicationController < ActionController::Base
         item.destroy
 
       when :dataobject
-
         item.destroy
 
       when :domain
@@ -629,6 +667,9 @@ class ApplicationController < ActionController::Base
 
       when :queue
         #to be processd..
+
+      when :reference
+        item.destroy
 
     end
 
