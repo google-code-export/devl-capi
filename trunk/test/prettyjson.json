@@ -1,6 +1,4 @@
 {
-    "metadata": {
-        "hello": "world",
-        "hello": "Mom"
-    }
+"copy": "//",
+"move": "ll"
 }

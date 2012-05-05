@@ -6,12 +6,12 @@ class Item
   include MongoMapper::Document
   plugin MongoMapper::Plugins::IdentityMap
   key :path, String, :required => true
-  key :referPath, String, :default => nil
-  key :itemType, Symbol, :required => true #can be :container|:dataobject|:queue|:refer
+  key :itemType, Symbol, :required => true #can be :container|:dataobject|:queue|:reference
   # key :data, Hash
   one :container, :default => nil
   one :dataobject, :default => nil
   one :queue, :default => nil
+  one :reference, :default => nil
 end
 # Item.collection.remove # empties collection
 

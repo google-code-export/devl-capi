@@ -22,4 +22,5 @@ class Container
   key :subcontainers_item_ids, Array, :typecast => 'ObjectId', :default => Array.new
   key :subdataobjects_item_ids, Array, :typecast => 'ObjectId', :default => Array.new
   key :subqueues_item_ids, Array, :typecast => 'ObjectId', :default => Array.new
+  key :subreferences_item_ids, Array, :typecast => 'ObjectId', :default => Array.new
 end
