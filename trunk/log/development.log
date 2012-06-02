@@ -7419,3 +7419,676 @@ Completed in 72ms (View: 2 | 200 OK [http://localhost/ds]
 Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-06 02:38:00) [GET]
   Parameters: {"steps"=>[]}
 Completed in 64ms (View: 15 | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-06 18:45:53) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 39ms (View: 4 | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-06 18:46:51) [PUT]
+  Parameters: {"steps"=>[]}
+Completed in 3559ms (View: 1 | 406 Not Acceptable [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-06 18:47:00) [PUT]
+  Parameters: {"steps"=>["ss"]}
+Completed in 112ms (View: 2 | 201 Created [http://localhost/ss]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-06 18:47:36) [GET]
+  Parameters: {"steps"=>["ss"]}
+Completed in 73ms (View: 1 | 400 Bad Request [http://localhost/ss]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-06 18:48:56) [GET]
+  Parameters: {"steps"=>["ss"]}
+Completed in 91ms (View: 1 | 400 Bad Request [http://localhost/ss]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-06 18:49:17) [GET]
+  Parameters: {"steps"=>["ss"]}
+Completed in 70ms (View: 1 | 200 OK [http://localhost/ss]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-06 18:50:48) [PUT]
+  Parameters: {"steps"=>["ss"]}
+Completed in 97ms (View: 1 | 200 OK [http://localhost/ss]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-06 18:50:57) [PUT]
+  Parameters: {"steps"=>["sss"]}
+Completed in 93ms (View: 2 | 201 Created [http://localhost/sss]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-06 18:51:08) [GET]
+  Parameters: {"steps"=>["sss"]}
+Completed in 82ms (View: 2 | 200 OK [http://localhost/sss]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-06 18:51:16) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 48ms (View: 1 | 406 Not Acceptable [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-06 18:51:31) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 78ms (View: 2 | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-25 20:02:38) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 47ms (View: 0 | 400 Bad Request [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-25 20:04:21) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 2293ms (View: 0 | 201 Created [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-25 20:07:41) [PUT]
+  Parameters: {"steps"=>["MyContainer", "note.txt"]}
+Completed in 78ms (View: 0 | 201 Created [http://localhost/MyContainer/note.txt]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-25 20:08:33) [GET]
+  Parameters: {"steps"=>["MyContainer", "note.txt"]}
+Completed in 47ms (View: 0 | 200 OK [http://localhost/MyContainer/note.txt]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-25 20:08:58) [GET]
+  Parameters: {"value"=>nil, "mimetype"=>nil, "steps"=>["MyContainer", "note.txt"]}
+Completed in 47ms (View: 0 | 200 OK [http://localhost/MyContainer/note.txt?value;mimetype]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-25 20:09:16) [GET]
+  Parameters: {"value:0-50"=>nil, "mimetype"=>nil, "steps"=>["MyContainer", "note.txt"]}
+Completed in 47ms (View: 0 | 200 OK [http://localhost/MyContainer/note.txt?value:0-50;mimetype]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-25 20:09:23) [GET]
+  Parameters: {"value:0-50"=>nil, "steps"=>["MyContainer", "note.txt"]}
+Completed in 94ms (View: 0 | 200 OK [http://localhost/MyContainer/note.txt?value:0-50]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-25 20:09:37) [GET]
+  Parameters: {"value:40-50"=>nil, "steps"=>["MyContainer", "note.txt"]}
+Completed in 62ms (View: 0 | 200 OK [http://localhost/MyContainer/note.txt?value:40-50]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-25 20:09:45) [GET]
+  Parameters: {"value:0-10"=>nil, "steps"=>["MyContainer", "note.txt"]}
+Completed in 94ms (View: 0 | 200 OK [http://localhost/MyContainer/note.txt?value:0-10]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-25 20:10:00) [GET]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 0ms (View: 0 | 405 Method Not Allowed [http://localhost/MyContainer/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-25 20:10:11) [GET]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 47ms (View: 0 | 406 Not Acceptable [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-25 20:10:26) [GET]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 62ms (View: 0 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-25 20:12:35) [PUT]
+  Parameters: {"steps"=>["MyContainer", "note.jpg"]}
+Completed in 94ms (View: 0 | 201 Created [http://localhost/MyContainer/note.jpg]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-25 20:13:04) [GET]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 47ms (View: 0 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-25 20:14:50) [PUT]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 62ms (View: 0 | 406 Not Acceptable [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-25 20:15:14) [PUT]
+  Parameters: {"steps"=>["MyContainer", "ref"]}
+Completed in 109ms (View: 0 | 201 Created [http://localhost/MyContainer/ref]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-25 20:15:40) [GET]
+  Parameters: {"steps"=>["MyContainer", "ref"]}
+Completed in 47ms (View: 0 | 200 OK [http://localhost/MyContainer/ref]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-25 20:16:34) [DELETE]
+  Parameters: {"steps"=>["MyContainer", "ref"]}
+Completed in 62ms (View: 0 | 200 OK [http://localhost/MyContainer/ref]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-25 20:16:56) [GET]
+  Parameters: {"steps"=>["MyContainer", "ref"]}
+Completed in 47ms (View: 0 | 404 Not Found [http://localhost/MyContainer/ref]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-25 20:17:08) [GET]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 62ms (View: 0 | 406 Not Acceptable [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-25 20:17:42) [GET]
+  Parameters: {"steps"=>["MyContainer"]}
+Completed in 62ms (View: 0 | 200 OK [http://localhost/MyContainer]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-25 20:18:17) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 47ms (View: 0 | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-25 20:19:46) [GET]
+  Parameters: {"steps"=>["ss"]}
+Completed in 47ms (View: 0 | 200 OK [http://localhost/ss]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-05-25 20:19:53) [GET]
+  Parameters: {"steps"=>["sss"]}
+Completed in 47ms (View: 0 | 200 OK [http://localhost/sss]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:14:34) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 70ms (View: 0 | 406 Not Acceptable [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:15:10) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 30ms (View: 0 | 406 Not Acceptable [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:16:10) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 30ms (View: 0 | 406 Not Acceptable [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:17:46) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 0ms (View: 0 | 400 Bad Request [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:18:17) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 0ms (View: 0 | 400 Bad Request [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:18:38) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 0ms (View: 0 | 400 Bad Request [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:18:55) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 0ms (View: 0 | 400 Bad Request [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:25:55) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 0ms (View: 0 | 400 Bad Request [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:26:34) [GET]
+  Parameters: {"steps"=>["MyContadiner"]}
+Completed in 90ms (View: 0 | 404 Not Found [http://localhost/MyContadiner]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:26:43) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 40ms (View: 0 | 400 Bad Request [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:27:20) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 40ms (View: 0 | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:27:30) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 50ms (View: 0 | 406 Not Acceptable [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:28:22) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 60ms (View: 0 | 406 Not Acceptable [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:29:46) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 0ms (View: 0 | 400 Bad Request [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:29:56) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 40ms (View: 0 | 406 Not Acceptable [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:30:10) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 80ms (View: 0 | 406 Not Acceptable [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:31:05) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 80ms (View: 0 | 406 Not Acceptable [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:31:50) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 50ms (View: 0 | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:32:24) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 70ms (View: 0 | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:32:30) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 50ms (View: 0 | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:33:07) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 80ms (View: 0 | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:34:04) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 40ms (View: 0 | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:34:25) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 60ms (View: 0 | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:34:56) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 110ms (View: 0 | 406 Not Acceptable [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:35:43) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 60ms (View: 0 | 406 Not Acceptable [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:35:54) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 10ms (View: 0 | 400 Bad Request [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:36:39) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 0ms (View: 0 | 400 Bad Request [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:36:47) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 70ms (View: 0 | 406 Not Acceptable [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:37:16) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 60ms (View: 0 | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:37:22) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 40ms (View: 0 | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:37:31) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 50ms (View: 0 | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:38:00) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 70ms (View: 0 | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:38:18) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 50ms (View: 0 | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:38:37) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 100ms (View: 0 | 406 Not Acceptable [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:39:14) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 50ms (View: 0 | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:39:28) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 60ms (View: 0 | 406 Not Acceptable [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:39:37) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 50ms (View: 0 | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:40:10) [GET]
+  Parameters: {"capabilitiesURI"=>nil, "steps"=>[]}
+Completed in 50ms (View: 0 | 200 OK [http://localhost/?capabilitiesURI]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:40:15) [GET]
+  Parameters: {"capabilitieddsURI"=>nil, "steps"=>[]}
+
+NoMethodError (undefined method `capabilitieddsURI' for #<Container:0x3666f90>):
+  app/controllers/application_controller.rb:606:in `eval'
+  (eval):1:in `block in do_GET'
+  app/controllers/application_controller.rb:606:in `eval'
+  app/controllers/application_controller.rb:606:in `block in do_GET'
+  app/controllers/application_controller.rb:605:in `each'
+  app/controllers/application_controller.rb:605:in `do_GET'
+  app/controllers/application_controller.rb:180:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (20.0ms)
+Rendered rescues/_request_and_response (10.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:43:27) [GET]
+  Parameters: {"capabilitieddsURI"=>nil, "steps"=>[]}
+
+NoMethodError (undefined method `capabilitieddsURI' for #<Container:0x2baf4c0>):
+  app/controllers/application_controller.rb:606:in `eval'
+  (eval):1:in `block in do_GET'
+  app/controllers/application_controller.rb:606:in `eval'
+  app/controllers/application_controller.rb:606:in `block in do_GET'
+  app/controllers/application_controller.rb:605:in `each'
+  app/controllers/application_controller.rb:605:in `do_GET'
+  app/controllers/application_controller.rb:180:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (20.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:47:00) [GET]
+  Parameters: {"capabilitieddsURI"=>nil, "steps"=>[]}
+
+NoMethodError (undefined method `capabilitieddsURI' for #<Container:0x2d7ec60>):
+  app/controllers/application_controller.rb:606:in `eval'
+  (eval):1:in `block in do_GET'
+  app/controllers/application_controller.rb:606:in `eval'
+  app/controllers/application_controller.rb:606:in `block in do_GET'
+  app/controllers/application_controller.rb:605:in `each'
+  app/controllers/application_controller.rb:605:in `do_GET'
+  app/controllers/application_controller.rb:180:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (20.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:49:28) [GET]
+  Parameters: {"capabilitieddsURI"=>nil, "steps"=>[]}
+
+NameError (undefined local variable or method `capabilitieddsURI' for #<ApplicationController:0x3b51400>):
+  app/controllers/application_controller.rb:606:in `eval'
+  app/controllers/application_controller.rb:606:in `eval'
+  app/controllers/application_controller.rb:606:in `block in do_GET'
+  app/controllers/application_controller.rb:605:in `each'
+  app/controllers/application_controller.rb:605:in `do_GET'
+  app/controllers/application_controller.rb:180:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (20.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:50:19) [GET]
+  Parameters: {"capabilitieddsURI"=>nil, "steps"=>[]}
+
+NameError (undefined local variable or method `capabilitieddsURI' for #<ApplicationController:0x47465b8>):
+  app/controllers/application_controller.rb:606:in `eval'
+  app/controllers/application_controller.rb:606:in `eval'
+  app/controllers/application_controller.rb:606:in `block in do_GET'
+  app/controllers/application_controller.rb:605:in `each'
+  app/controllers/application_controller.rb:605:in `do_GET'
+  app/controllers/application_controller.rb:180:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (10.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:50:54) [GET]
+  Parameters: {"capabilitieddsURI"=>nil, "steps"=>[]}
+
+NameError (undefined local variable or method `capabilitieddsURI' for #<ApplicationController:0x5e64a00>):
+  app/controllers/application_controller.rb:606:in `eval'
+  app/controllers/application_controller.rb:606:in `eval'
+  app/controllers/application_controller.rb:606:in `block in do_GET'
+  app/controllers/application_controller.rb:605:in `each'
+  app/controllers/application_controller.rb:605:in `do_GET'
+  app/controllers/application_controller.rb:180:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (20.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:53:12) [GET]
+  Parameters: {"capabilitieddsURI"=>nil, "steps"=>[]}
+
+NameError (undefined local variable or method `capabilitieddsURI' for #<ApplicationController:0x3cb6370>):
+  app/controllers/application_controller.rb:606:in `eval'
+  app/controllers/application_controller.rb:606:in `eval'
+  app/controllers/application_controller.rb:606:in `block in do_GET'
+  app/controllers/application_controller.rb:605:in `each'
+  app/controllers/application_controller.rb:605:in `do_GET'
+  app/controllers/application_controller.rb:180:in `preprocess'
+  <internal:prelude>:10:in `synchronize'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  f:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (20.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:55:54) [GET]
+  Parameters: {"capabilitieddsURI"=>nil, "steps"=>[]}
+Completed in 100ms (View: 0 | 400 Bad Request [http://localhost/?capabilitieddsURI]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:56:19) [GET]
+  Parameters: {"capabilitiesURI"=>nil, "steps"=>[]}
+Completed in 60ms (View: 0 | 200 OK [http://localhost/?capabilitiesURI]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:56:58) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 40ms (View: 0 | 200 OK [http://localhost/?]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:57:16) [GET]
+  Parameters: {"domainURI"=>nil, "steps"=>[]}
+Completed in 40ms (View: 0 | 400 Bad Request [http://localhost/?domainURI]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:58:14) [GET]
+  Parameters: {"domainURI"=>nil, "steps"=>[]}
+Completed in 40ms (View: 0 | 400 Bad Request [http://localhost/?domainURI]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:58:35) [GET]
+  Parameters: {"domainURI"=>nil, "steps"=>[]}
+Completed in 70ms (View: 0 | 400 Bad Request [http://localhost/?domainURI]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:58:47) [GET]
+  Parameters: {"capabilitiesURI"=>nil, "steps"=>[]}
+Completed in 70ms (View: 0 | 200 OK [http://localhost/?capabilitiesURI]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:59:35) [GET]
+  Parameters: {"capabilitiesURI"=>nil, "steps"=>[]}
+Completed in 70ms (View: 0 | 200 OK [http://localhost/?capabilitiesURI]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:59:43) [GET]
+  Parameters: {"domainURI"=>nil, "steps"=>[]}
+Completed in 50ms (View: 0 | 200 OK [http://localhost/?domainURI]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 01:59:59) [GET]
+  Parameters: {"domainURI"=>nil, "steps"=>[]}
+Completed in 50ms (View: 0 | 200 OK [http://localhost/?domainURI]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 02:00:07) [GET]
+  Parameters: {"domainURI"=>nil, "steps"=>[]}
+Completed in 70ms (View: 0 | 400 Bad Request [http://localhost/?domainURI]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 02:00:28) [GET]
+  Parameters: {"domainURI"=>nil, "steps"=>[]}
+Completed in 40ms (View: 0 | 200 OK [http://localhost/?domainURI]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 02:00:33) [GET]
+  Parameters: {"capabilitiesURI"=>nil, "steps"=>[]}
+Completed in 80ms (View: 0 | 400 Bad Request [http://localhost/?capabilitiesURI]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 02:00:52) [GET]
+  Parameters: {"capabilitiesURI"=>nil, "steps"=>[]}
+Completed in 40ms (View: 0 | 200 OK [http://localhost/?capabilitiesURI]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 02:00:59) [GET]
+  Parameters: {"domainURI"=>nil, "steps"=>[]}
+Completed in 70ms (View: 0 | 200 OK [http://localhost/?domainURI]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 02:01:45) [GET]
+  Parameters: {"domainURI"=>nil, "steps"=>[]}
+Completed in 90ms (View: 0 | 200 OK [http://localhost/?domainURI]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 03:25:26) [GET]
+  Parameters: {"steps"=>[]}
+Completed in 80ms (View: 0 | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 03:26:07) [GET]
+  Parameters: {"steps"=>["cdmi_objectid", "4fa65791b2918c16c4000003"]}
+Completed in 40ms (View: 0 | 200 OK [http://localhost/cdmi_objectid/4fa65791b2918c16c4000003]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 03:26:42) [PUT]
+  Parameters: {"steps"=>["cdmi_objectid", "4fa65791b2918c16c4000003"]}
+Completed in 5818ms (View: 0 | 406 Not Acceptable [http://localhost/cdmi_objectid/4fa65791b2918c16c4000003]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 03:27:02) [PUT]
+  Parameters: {"steps"=>["cdmi_objectid", "4fa65791b2918c16c4000003"]}
+Completed in 70ms (View: 0 | 406 Not Acceptable [http://localhost/cdmi_objectid/4fa65791b2918c16c4000003]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 03:28:12) [PUT]
+  Parameters: {"steps"=>["cdmi_objectid", "4fa65791b2918c16c4000003"]}
+Completed in 50ms (View: 10 | 200 OK [http://localhost/cdmi_objectid/4fa65791b2918c16c4000003]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 03:28:42) [PUT]
+  Parameters: {"steps"=>["cdmi_objectid", "4fa65791b2918c16c4000003"]}
+Completed in 90ms (View: 0 | 200 OK [http://localhost/cdmi_objectid/4fa65791b2918c16c4000003]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 03:28:55) [PUT]
+  Parameters: {"value"=>nil, "steps"=>["cdmi_objectid", "4fa65791b2918c16c4000003"]}
+Completed in 50ms (View: 0 | 200 OK [http://localhost/cdmi_objectid/4fa65791b2918c16c4000003?value]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 03:29:13) [PUT]
+  Parameters: {"value:4-6"=>nil, "steps"=>["cdmi_objectid", "4fa65791b2918c16c4000003"]}
+Completed in 70ms (View: 0 | 200 OK [http://localhost/cdmi_objectid/4fa65791b2918c16c4000003?value:4-6]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 03:29:30) [PUT]
+  Parameters: {"value:4-6"=>nil, "steps"=>["cdmi_objectid", "4fa65791b2918c16c4000003"]}
+Completed in 40ms (View: 0 | 200 OK [http://localhost/cdmi_objectid/4fa65791b2918c16c4000003?value:4-6]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 03:29:41) [PUT]
+  Parameters: {"value:4-6"=>nil, "steps"=>["cdmi_objectid", "4fa65791b2918c16c4000003"]}
+Completed in 40ms (View: 0 | 200 OK [http://localhost/cdmi_objectid/4fa65791b2918c16c4000003?value:4-6]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 03:29:57) [PUT]
+  Parameters: {"value:4-6"=>nil, "steps"=>["cdmi_objectid", "4fa65791b2918c16c4000003"]}
+Completed in 40ms (View: 0 | 200 OK [http://localhost/cdmi_objectid/4fa65791b2918c16c4000003?value:4-6]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 03:30:00) [PUT]
+  Parameters: {"value:4-6"=>nil, "steps"=>["cdmi_objectid", "4fa65791b2918c16c4000003"]}
+Completed in 40ms (View: 0 | 200 OK [http://localhost/cdmi_objectid/4fa65791b2918c16c4000003?value:4-6]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 03:30:15) [PUT]
+  Parameters: {"value:1-4"=>nil, "steps"=>["cdmi_objectid", "4fa65791b2918c16c4000003"]}
+Completed in 40ms (View: 0 | 200 OK [http://localhost/cdmi_objectid/4fa65791b2918c16c4000003?value:1-4]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 03:31:06) [PUT]
+  Parameters: {"value:1-1"=>nil, "steps"=>["cdmi_objectid", "4fa65791b2918c16c4000003"]}
+Completed in 40ms (View: 0 | 200 OK [http://localhost/cdmi_objectid/4fa65791b2918c16c4000003?value:1-1]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 03:31:28) [PUT]
+  Parameters: {"value:4-9"=>nil, "steps"=>["cdmi_objectid", "4fa65791b2918c16c4000003"]}
+Completed in 90ms (View: 0 | 200 OK [http://localhost/cdmi_objectid/4fa65791b2918c16c4000003?value:4-9]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 03:49:14) [PUT]
+  Parameters: {"value"=>nil, "steps"=>["cdmi_objectid", "4fa65791b2918c16c4000003"]}
+Completed in 40ms (View: 0 | 200 OK [http://localhost/cdmi_objectid/4fa65791b2918c16c4000003?value]
+
+
+Processing ApplicationController#preprocess (for 127.0.0.1 at 2012-06-03 03:53:16) [PUT]
+  Parameters: {"value:5-10"=>nil, "mimetype"=>nil, "steps"=>["cdmi_objectid", "4fa65791b2918c16c4000003"]}
+Completed in 60ms (View: 10 | 200 OK [http://localhost/cdmi_objectid/4fa65791b2918c16c4000003?value:5-10;mimetype]

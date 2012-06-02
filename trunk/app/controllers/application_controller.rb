@@ -147,6 +147,11 @@ class ApplicationController < ActionController::Base
       result[:itemType]   = itemType
       result[:acceptType] = acceptType
 
+      if result[:itemType].nil?
+        render :json => {'ERROR' => "Need to specify Content Type"},:content_type => 'application/json',:status => :bad_request
+        return
+      end
+
       #Is it a allowed method for current request URI?
       result[:methodAllow?] = methodAllowed?(request.path.last, request.method, itemType, root, format, accessByObjectId)
 
@@ -158,7 +163,7 @@ class ApplicationController < ActionController::Base
 
       unless [:object, :container, :dataobject, :queue, :domain].include?(result[:itemType])
         render :json => {
-          'ERROR' => "not support this itemType #{result[:itemType]}",
+          'ERROR' => "not support this itemType #{result[:contentType]}",
           'result' => result
         }, :content_type => 'application/json', :status => :bad_request
         return
@@ -342,7 +347,7 @@ class ApplicationController < ActionController::Base
           end)
         end
       end
-      return nil
+      acceptType.empty? ? ( acceptType << :unknow ; return) : return
     end
     return nil
   end
@@ -417,12 +422,17 @@ class ApplicationController < ActionController::Base
     case findPath.nil?
       when true
         if request.headers['X-CDMI-MustExist'] == "true"
-          render :json => {'ERROR' => "An update was attempted on a container that does not exist, and the X-CDMI-MustExist header element was set to \"true\"."}, :content_type => 'application/json', :status => :not_found
+          render :json => {'ERROR' => "An update was attempted on a object that does not exist, and the X-CDMI-MustExist header element was set to \"true\"."}, :content_type => 'application/json', :status => :not_found
           return
         end
 
         if result[:accessByObjectId] == true
           render :json => {'ERROR' => "can not create item via this uri"}, :content_type => 'application/json', :status => :conflicts
+          return
+        end
+
+        if result[:acceptType].empty? || result[:acceptType].include?(:unknow)
+          render :json => {'ERROR' => "acceptType ERROR"}, :content_type => 'application/json', :status => :bad_request
           return
         end
 
@@ -567,7 +577,12 @@ class ApplicationController < ActionController::Base
         item = findPath
     end
 
-    if result[:acceptType].empty? || (item.itemType == :reference ? false : !result[:acceptType].include?(item.itemType))
+    # if result[:acceptType].empty? || (item.itemType == :reference ? false : !result[:acceptType].include?(item.itemType))
+    #   render :json => {'ERROR' => "the server is unable to provide the object in the accept-type specified in the accept header."},:content_type => 'application/json', :status => :not_acceptable
+    #   return
+    # end
+
+    if item.itemType == :reference ? false : ( result[:acceptType].empty? ? false : !result[:acceptType].include?(item.itemType))
       render :json => {'ERROR' => "the server is unable to provide the object in the accept-type specified in the accept header."},:content_type => 'application/json', :status => :not_acceptable
       return
     end
@@ -588,7 +603,13 @@ class ApplicationController < ActionController::Base
         else
           getResult = Hash.new
           result[:queryParameters].each { |key,value|
-            if (eval "item.#{item.itemType}.#{key}") != nil
+            if (eval "
+              begin
+                item.#{item.itemType}.#{key}.nil? ? true : true
+              rescue Exception => e
+                false
+              end
+              ")
               case value.class.to_s
                 when 'NilClass'
                   getResult[key] = (eval "item.#{item.itemType}.#{key}")
